@@ -22,8 +22,8 @@ public class InputManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        horizontalMove.Value = Input.GetAxis("Horizontal");
-        verticalMove.Value = Input.GetAxis("Vertical");
+        horizontalMove.Value = Input.GetAxisRaw("Horizontal");
+        verticalMove.Value = Input.GetAxisRaw("Vertical");
         if (Input.GetButtonDown("Dash")) {
             isDashing.Value = true;
         }

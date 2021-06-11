@@ -62,7 +62,13 @@ public class PlayerManager : MonoBehaviour
     void FixedUpdate() {
         switch (state) {
             case State.Normal:
-                rb.velocity = moveDir * moveSpeed;
+                if (moveDir.magnitude == 0) {
+                    rb.velocity = Vector2.zero;
+                }
+                else {
+                    rb.velocity = moveDir * moveSpeed;
+                }
+                
                 if (isTeleporting.Value) {
                     Teleport(moveDir);
                 }
