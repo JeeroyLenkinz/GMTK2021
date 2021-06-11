@@ -427,30 +427,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
-    - target: {fileID: 8395581352987850148, guid: f601e37b6fa12b24aa8dd9e66c1227dc, type: 3}
-      propertyPath: m_LinearDrag
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8395581352987850148, guid: f601e37b6fa12b24aa8dd9e66c1227dc, type: 3}
-      propertyPath: m_AngularDrag
-      value: 0.05
-      objectReference: {fileID: 0}
-    - target: {fileID: 8395581352987850148, guid: f601e37b6fa12b24aa8dd9e66c1227dc, type: 3}
-      propertyPath: m_Interpolate
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8395581352987850148, guid: f601e37b6fa12b24aa8dd9e66c1227dc, type: 3}
-      propertyPath: m_CollisionDetection
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8395581352987850149, guid: f601e37b6fa12b24aa8dd9e66c1227dc, type: 3}
-      propertyPath: maxDashSpeed
-      value: 15
-      objectReference: {fileID: 0}
-    - target: {fileID: 8395581352987850149, guid: f601e37b6fa12b24aa8dd9e66c1227dc, type: 3}
-      propertyPath: dashSpeedDropMultiplier
-      value: 0.7
-      objectReference: {fileID: 0}
     - target: {fileID: 8395581352987850151, guid: f601e37b6fa12b24aa8dd9e66c1227dc, type: 3}
       propertyPath: m_RootOrder
       value: 2
