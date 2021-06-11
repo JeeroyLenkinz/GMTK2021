@@ -12,9 +12,11 @@ public class InputManager : MonoBehaviour
     [SerializeField]
     private BoolReference isDashing;
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
-        
+        horizontalMove.Value = 0f;
+        verticalMove.Value = 0f;
+        isDashing.Value = false;
     }
 
     // Update is called once per frame

@@ -11,42 +11,77 @@ public class PlayerManager : MonoBehaviour
     private FloatReference verticalMove;
     [SerializeField]
     private BoolReference isDashing;
-    private float currentDashTime;
+    private enum State {
+        Normal,
+        Dashing,
+    }
+    private State state;
+    private Vector3 moveDir;
+    private Vector3 dashDir;
     public float moveSpeed;
-    public float dashSpeed;
-    public float totalDashTime;
+    private float currentDashSpeed;
+    public float maxDashSpeed;
+    public float dashSpeedDropMultiplier;
+
+    // Teleport Code
+    [SerializeField]
+    private BoolReference isTeleporting;
+    [SerializeField]
+    private LayerMask teleportLayerMask;
+    public float teleportAmount;
+
 
     private Rigidbody2D rb;
     // Start is called before the first frame update
     void Awake() {
         rb = GetComponent<Rigidbody2D>();
-        currentDashTime = totalDashTime;
-    }
-    
-    void Start()
-    {
-    
+        state = State.Normal;
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
-    void FixedUpdate() {
-        Vector2 moveDir = new Vector2(horizontalMove.Value, verticalMove.Value);
-        rb.velocity = moveDir * moveSpeed;
-
-        if (isDashing.Value) {
-            if (currentDashTime <= 0) {
-                isDashing.Value = false;
-                currentDashTime = totalDashTime;
-                rb.velocity = Vector2.zero;
-            }
-            else {
-                currentDashTime -= Time.fixedDeltaTime;
-            }
+    void Update() {
+        switch (state) {
+            case State.Normal:
+                moveDir = new Vector2(horizontalMove.Value, verticalMove.Value).normalized;
+                if (isDashing.Value) {
+                    dashDir = moveDir;
+                    currentDashSpeed = maxDashSpeed;
+                    state = State.Dashing;
+                }
+                break;
+            case State.Dashing:
+                currentDashSpeed -= currentDashSpeed * dashSpeedDropMultiplier * Time.fixedDeltaTime;
+                if (currentDashSpeed <= moveSpeed) {
+                    state = State.Normal;
+                    isDashing.Value = false;
+                }
+                break;
         }
+
+    }
+    
+    void FixedUpdate() {
+        switch (state) {
+            case State.Normal:
+                rb.velocity = moveDir * moveSpeed;
+                if (isTeleporting.Value) {
+                    Teleport(moveDir);
+                }
+                break;
+            case State.Dashing:
+                rb.velocity = dashDir * currentDashSpeed;
+                break;
+        }
+
+    }
+
+    private void Teleport(Vector3 moveDir) {
+        Vector3 teleportPosition = transform.position + moveDir * teleportAmount;
+        RaycastHit2D raycastHit2d = Physics2D.Raycast(transform.position, moveDir, teleportAmount, teleportLayerMask);
+        if (raycastHit2d.collider != null) {
+            teleportPosition = raycastHit2d.point;
+        }
+
+        rb.MovePosition(teleportPosition);
+        isTeleporting.Value = false;
     }
 }
