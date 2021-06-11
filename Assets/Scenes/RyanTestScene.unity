@@ -309,6 +309,11 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &614270339 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8395581352987850147, guid: f601e37b6fa12b24aa8dd9e66c1227dc, type: 3}
+  m_PrefabInstance: {fileID: 8395581353582063648}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &987570637
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -316,6 +321,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 165431009, guid: 111157c9bd81a8c4d8d7640dcf7519de, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 614270339}
     - target: {fileID: 5555324825321703930, guid: 111157c9bd81a8c4d8d7640dcf7519de, type: 3}
       propertyPath: m_Name
       value: Ghost

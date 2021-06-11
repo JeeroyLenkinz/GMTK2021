@@ -56,3 +56,4 @@ MonoBehaviour:
     _constantValue: 0
     _variable: {fileID: 11400000, guid: e83e3a225a55e4040b216d8bf63625ce, type: 2}
   startChanneling: {fileID: 11400000, guid: 24ebdd2b2bbb74f458fb35836365ca4e, type: 2}
+  endChanneling: {fileID: 11400000, guid: 2db3af13f0e66ef4fa7eef5cfae85118, type: 2}

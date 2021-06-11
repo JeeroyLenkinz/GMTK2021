@@ -34,12 +34,12 @@ public class PlayerManager : MonoBehaviour
 
     private Rigidbody2D rb;
     // Start is called before the first frame update
-    void Awake() {
+    public void Awake() {
         rb = GetComponent<Rigidbody2D>();
         state = State.Normal;
     }
 
-    void Update() {
+    public void Update() {
         switch (state) {
             case State.Normal:
                 moveDir = new Vector2(horizontalMove.Value, verticalMove.Value).normalized;
@@ -62,7 +62,7 @@ public class PlayerManager : MonoBehaviour
 
     }
     
-    void FixedUpdate() {
+    public void FixedUpdate() {
         switch (state) {
             case State.Normal:
                 if (moveDir.magnitude == 0) {
@@ -86,6 +86,7 @@ public class PlayerManager : MonoBehaviour
 
     public void disableMovement() {
         Debug.Log("Set to unmovable!");
+        rb.velocity = Vector2.zero;
         state = State.Unmovable;
         Debug.Log("Value of state is: " + state);
     }

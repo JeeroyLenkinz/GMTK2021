@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using ScriptableObjectArchitecture;
 
-public class GhostManager : MonoBehaviour
+public class GhostManager : PlayerManager
 {
     [SerializeField]
     private GameObjectGameEvent enemyHit;
@@ -12,21 +12,17 @@ public class GhostManager : MonoBehaviour
 
     private List<GameObject> chainedEnemies = new List<GameObject>();
 
-    private void Awake()
+    private new void Awake()
     {
+        base.Awake();
         chainedEnemies.Clear();
     }
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+    public void e_StopChanneling() {
+        if (!getIsDashing()) {
+            gameObject.SetActive(false);
+            player.GetComponent<PlayerManager>().enableMovement();
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
