@@ -309,79 +309,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &614270339 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8395581352987850147, guid: f601e37b6fa12b24aa8dd9e66c1227dc, type: 3}
-  m_PrefabInstance: {fileID: 8395581353582063648}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &614270340
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 614270339}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9e9d0883c27a6ad48820c69fb7f35e01, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  horizontalMove:
-    _useConstant: 0
-    _constantValue: 0
-    _variable: {fileID: 11400000, guid: f8a5e83452e71b443834ee91d213764c, type: 2}
-  verticalMove:
-    _useConstant: 0
-    _constantValue: 0
-    _variable: {fileID: 11400000, guid: 94d6a23b0bb89f54ca6c93a6135c6924, type: 2}
-  isDashing:
-    _useConstant: 0
-    _constantValue: 0
-    _variable: {fileID: 11400000, guid: e83e3a225a55e4040b216d8bf63625ce, type: 2}
-  moveSpeed: 5
-  maxDashSpeed: 15
-  dashSpeedDropMultiplier: 0.7
-  isTeleporting:
-    _useConstant: 0
-    _constantValue: 0
-    _variable: {fileID: 11400000, guid: 69ebe98bfdd884f47ace0d407dd5b304, type: 2}
-  teleportLayerMask:
-    serializedVersion: 2
-    m_Bits: 256
-  teleportAmount: 2
-  ghost: {fileID: 165431008}
---- !u!114 &614270341
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 614270339}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5758ca93461aeeb4589456a052b07d74, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _showDebugFields: 0
-  _enableGizmoDebugging: 1
-  _debugColor: {r: 0, g: 1, b: 1, a: 1}
-  _previouslyRegisteredEvent: {fileID: 11400000, guid: 24ebdd2b2bbb74f458fb35836365ca4e, type: 2}
-  _event: {fileID: 11400000, guid: 24ebdd2b2bbb74f458fb35836365ca4e, type: 2}
-  _response:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 614270340}
-        m_TargetAssemblyTypeName: HumanManager, Assembly-CSharp
-        m_MethodName: e_startChanneling
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
 --- !u!1001 &987570637
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -389,17 +316,9 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1106680338, guid: 111157c9bd81a8c4d8d7640dcf7519de, type: 3}
-      propertyPath: m_IsTrigger
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 5555324825321703930, guid: 111157c9bd81a8c4d8d7640dcf7519de, type: 3}
       propertyPath: m_Name
       value: Ghost
-      objectReference: {fileID: 0}
-    - target: {fileID: 5555324825321703930, guid: 111157c9bd81a8c4d8d7640dcf7519de, type: 3}
-      propertyPath: m_IsActive
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6893340945977455060, guid: 111157c9bd81a8c4d8d7640dcf7519de, type: 3}
       propertyPath: m_RootOrder
@@ -568,13 +487,13 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 614270340, guid: f601e37b6fa12b24aa8dd9e66c1227dc, type: 3}
+      propertyPath: ghost
+      value: 
+      objectReference: {fileID: 165431008}
     - target: {fileID: 8395581352987850147, guid: f601e37b6fa12b24aa8dd9e66c1227dc, type: 3}
       propertyPath: m_Name
       value: Player
-      objectReference: {fileID: 0}
-    - target: {fileID: 8395581352987850149, guid: f601e37b6fa12b24aa8dd9e66c1227dc, type: 3}
-      propertyPath: m_Enabled
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8395581352987850151, guid: f601e37b6fa12b24aa8dd9e66c1227dc, type: 3}
       propertyPath: m_RootOrder

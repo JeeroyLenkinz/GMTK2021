@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 8395581352987850151}
   - component: {fileID: 8395581352987850150}
-  - component: {fileID: 8395581352987850149}
   - component: {fileID: 8395581352987850148}
   - component: {fileID: 8395581352987850152}
   - component: {fileID: 5332842215474773031}
@@ -89,41 +88,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &8395581352987850149
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8395581352987850147}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d9c7a0c75fb0710429e71fd05797bd3b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  horizontalMove:
-    _useConstant: 0
-    _constantValue: 0
-    _variable: {fileID: 11400000, guid: f8a5e83452e71b443834ee91d213764c, type: 2}
-  verticalMove:
-    _useConstant: 0
-    _constantValue: 0
-    _variable: {fileID: 11400000, guid: 94d6a23b0bb89f54ca6c93a6135c6924, type: 2}
-  isDashing:
-    _useConstant: 0
-    _constantValue: 0
-    _variable: {fileID: 11400000, guid: e83e3a225a55e4040b216d8bf63625ce, type: 2}
-  moveSpeed: 5
-  maxDashSpeed: 15
-  dashSpeedDropMultiplier: 0.7
-  isTeleporting:
-    _useConstant: 0
-    _constantValue: 0
-    _variable: {fileID: 11400000, guid: 69ebe98bfdd884f47ace0d407dd5b304, type: 2}
-  teleportLayerMask:
-    serializedVersion: 2
-    m_Bits: 256
-  teleportAmount: 2
 --- !u!50 &8395581352987850148
 Rigidbody2D:
   serializedVersion: 4

@@ -13,12 +13,6 @@ public class HumanManager : PlayerManager
         ghost.SetActive(false);
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     public void e_startChanneling() {
         if (!getIsDashing()) {
             disableMovement();
