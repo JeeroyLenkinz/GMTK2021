@@ -2,15 +2,15 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Enemy : MonoBehaviour
+public class PlayerChain : MonoBehaviour
 {
-    private bool isChained;
     private LineRenderer lineRenderer;
     private GameObject nextAttached;
 
+    public GameObject ghost;
+
     private void Awake()
     {
-        isChained = false;
         nextAttached = null;
 
         lineRenderer = GetComponent<LineRenderer>();
@@ -20,7 +20,7 @@ public class Enemy : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        nextAttached = ghost;
     }
 
     // Update is called once per frame
@@ -43,20 +43,13 @@ public class Enemy : MonoBehaviour
         }
     }
 
-    public bool GetIsChained()
-    {
-        return isChained;
-    }
-
     public void Detach()
     {
-        
+
     }
 
     public void AttachNext(GameObject nextObj)
     {
-        isChained = true;
         nextAttached = nextObj;
     }
-
 }

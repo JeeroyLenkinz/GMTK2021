@@ -62,26 +62,30 @@ public class ChannelManager : MonoBehaviour
         // Updates the vertices in the line renderer
 
         int totalPoints = chainedEnemies.Count + 2; // +1 for player, +1 for ghost
-        Vector3[] points = new Vector3[totalPoints];
+
+        if(totalPoints == 2) // No enemies
+        {
+            return;
+        }
 
         for(int i = 0; i < totalPoints; i++)
         {
             if(i == 0)
             {
-                points[i] = player.transform.position;
+                player.GetComponent<PlayerChain>().AttachNext(chainedEnemies[i+1]);
             } 
             else if(i == totalPoints - 1)
             {
-                points[i] = ghost.transform.position;
+                //chainedEnemies[i] = Attacghost.transform.position;
             }
             else
             {
-                points[i] = chainedEnemies[i-1].transform.position;
+                //points[i] = chainedEnemies[i-1].transform.position;
             }
         }
 
-        lineRenderer.positionCount = points.Length;
-        lineRenderer.SetPositions(points);
+        //lineRenderer.positionCount = points.Length;
+        //lineRenderer.SetPositions(points);
     }
 
     #region events

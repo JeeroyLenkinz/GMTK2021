@@ -33,7 +33,7 @@ public class GhostManager : MonoBehaviour
             Enemy enemyLogic = enemy.GetComponent<Enemy>();
             if (!enemyLogic.GetIsChained())     // If enemy is not already in the list
             {
-                enemyLogic.SetIsChained(true);
+                //enemyLogic.SetIsChained(true);
                 enemyHit.Raise(enemy);
             }
 
