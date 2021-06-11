@@ -11,6 +11,8 @@ public class InputManager : MonoBehaviour
     private FloatReference verticalMove;
     [SerializeField]
     private BoolReference isDashing;
+    [SerializeField]
+    private GameEvent startChanneling;
     // Start is called before the first frame update
     void Awake()
     {
@@ -26,6 +28,9 @@ public class InputManager : MonoBehaviour
         verticalMove.Value = Input.GetAxisRaw("Vertical");
         if (Input.GetButtonDown("Dash")) {
             isDashing.Value = true;
+        }
+        if (Input.GetButtonDown("Channel")) {
+            startChanneling.Raise();
         }
     }
 }

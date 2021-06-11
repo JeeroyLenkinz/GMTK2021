@@ -14,6 +14,7 @@ public class PlayerManager : MonoBehaviour
     private enum State {
         Normal,
         Dashing,
+        Unmovable,
     }
     private State state;
     private Vector3 moveDir;
@@ -55,6 +56,8 @@ public class PlayerManager : MonoBehaviour
                     isDashing.Value = false;
                 }
                 break;
+            case State.Unmovable:
+                break;
         }
 
     }
@@ -76,8 +79,23 @@ public class PlayerManager : MonoBehaviour
             case State.Dashing:
                 rb.velocity = dashDir * currentDashSpeed;
                 break;
+            case State.Unmovable:
+                break;
         }
+    }
 
+    public void disableMovement() {
+        Debug.Log("Set to unmovable!");
+        state = State.Unmovable;
+        Debug.Log("Value of state is: " + state);
+    }
+
+    public void enableMovement() {
+        state = State.Normal;
+    }
+
+    public bool getIsDashing() {
+        return isDashing.Value;
     }
 
     private void Teleport(Vector3 moveDir) {
