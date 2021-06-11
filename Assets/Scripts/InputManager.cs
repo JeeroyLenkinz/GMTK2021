@@ -22,5 +22,8 @@ public class InputManager : MonoBehaviour
     {
         horizontalMove.Value = Input.GetAxis("Horizontal");
         verticalMove.Value = Input.GetAxis("Vertical");
+        if (Input.GetButtonDown("Dash")) {
+            isDashing.Value = true;
+        }
     }
 }

@@ -10,13 +10,22 @@ public class PlayerManager : MonoBehaviour
     [SerializeField]
     private FloatReference verticalMove;
     [SerializeField]
-    private float moveSpeed = 5f;
+    private BoolReference isDashing;
+    private float currentDashTime;
+    public float moveSpeed;
+    public float dashSpeed;
+    public float totalDashTime;
 
-    public Rigidbody2D rb;
+    private Rigidbody2D rb;
     // Start is called before the first frame update
+    void Awake() {
+        rb = GetComponent<Rigidbody2D>();
+        currentDashTime = totalDashTime;
+    }
+    
     void Start()
     {
-        
+    
     }
 
     // Update is called once per frame
@@ -26,7 +35,18 @@ public class PlayerManager : MonoBehaviour
     }
 
     void FixedUpdate() {
-        Vector2 movement = new Vector2(horizontalMove.Value, verticalMove.Value);
-        rb.MovePosition(rb.position + movement * moveSpeed * Time.fixedDeltaTime);
+        Vector2 moveDir = new Vector2(horizontalMove.Value, verticalMove.Value);
+        rb.velocity = moveDir * moveSpeed;
+
+        if (isDashing.Value) {
+            if (currentDashTime <= 0) {
+                isDashing.Value = false;
+                currentDashTime = totalDashTime;
+                rb.velocity = Vector2.zero;
+            }
+            else {
+                currentDashTime -= Time.fixedDeltaTime;
+            }
+        }
     }
 }
