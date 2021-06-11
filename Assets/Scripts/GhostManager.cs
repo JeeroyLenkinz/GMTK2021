@@ -7,10 +7,14 @@ public class GhostManager : MonoBehaviour
 {
     [SerializeField]
     private GameObjectGameEvent enemyHit;
+    [SerializeField]
+    private GameObject player;
+
+    private List<GameObject> chainedEnemies = new List<GameObject>();
 
     private void Awake()
     {
-        
+        chainedEnemies.Clear();
     }
 
     // Start is called before the first frame update
@@ -31,9 +35,19 @@ public class GhostManager : MonoBehaviour
         {
             GameObject enemy = collision.gameObject;
             Enemy enemyLogic = enemy.GetComponent<Enemy>();
+
+            if(chainedEnemies.Count == 0)             // If this is the first enemy hit
+            {
+                player.GetComponent<PlayerChain>().AttachNext(enemy);
+                chainedEnemies.Add(enemy);
+                enemyLogic.AttachNext(this.gameObject);
+            }
+
             if (!enemyLogic.GetIsChained())     // If enemy is not already in the list
             {
-                //enemyLogic.SetIsChained(true);
+                chainedEnemies[chainedEnemies.Count-1].GetComponent<Enemy>().AttachNext(enemy);
+                chainedEnemies.Add(enemy);
+                enemyLogic.AttachNext(this.gameObject);
                 enemyHit.Raise(enemy);
             }
 

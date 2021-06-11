@@ -11,8 +11,6 @@ public class PlayerChain : MonoBehaviour
 
     private void Awake()
     {
-        nextAttached = null;
-
         lineRenderer = GetComponent<LineRenderer>();
         lineRenderer.widthMultiplier = 0.3f;
     }
