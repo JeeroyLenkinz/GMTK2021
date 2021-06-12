@@ -11,19 +11,18 @@ public class GhostManager : PlayerManager
     private GameObject player;
 
     private List<GameObject> chainedEnemies = new List<GameObject>();
+    private bool isWaiting;
 
     private new void Awake()
     {
         base.Awake();
+        isWaiting = false;
         chainedEnemies.Clear();
     }
 
     public void e_StopChanneling() {
         if (!getIsDashing()) {
-
-            player.GetComponent<PlayerManager>().enableMovement();
             StartCoroutine(StopChannelCoroutine());
-            gameObject.SetActive(false);
         }
     }
 
@@ -54,7 +53,21 @@ public class GhostManager : PlayerManager
 
     private IEnumerator StopChannelCoroutine()
     {
+        isWaiting = true;
+        disableMovement();
         player.GetComponent<HumanManager>().MoveToGhost(chainedEnemies);
-        yield return null;
+        while (isWaiting)       // Waiting for the movement to end
+        {
+            yield return null;
+        }
+        chainedEnemies.Clear();
+        player.GetComponent<PlayerManager>().enableMovement();
+        enableMovement();
+        gameObject.SetActive(false);
+    }
+
+    public void StopWaiting()
+    {
+        isWaiting = false;
     }
 }
