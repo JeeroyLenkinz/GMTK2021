@@ -292,6 +292,7 @@ MonoBehaviour:
     _constantValue: 0
     _variable: {fileID: 11400000, guid: e28a30906b13179448baaa8a7781d491, type: 2}
   gameOverEvent: {fileID: 11400000, guid: ff4597689aadcd94eb20da621ef398bd, type: 2}
+  severConnectionEvent: {fileID: 11400000, guid: d7a5c46526a158846b58a0b1e1c33501, type: 2}
 --- !u!114 &614270341
 MonoBehaviour:
   m_ObjectHideFlags: 0

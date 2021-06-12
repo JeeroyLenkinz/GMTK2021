@@ -27,6 +27,8 @@ public class HumanManager : PlayerManager
     private BoolReference isMovingToGhost;
     [SerializeField]
     private GameEvent gameOverEvent;
+    [SerializeField]
+    private GameEvent severConnectionEvent;
 
     // private new void Awake() {
     //     base.Awake();
@@ -140,7 +142,7 @@ public class HumanManager : PlayerManager
     public void e_getHit() {
         if (isChanneling.Value) {
             // Initiate sever
-            stopChanneling.Raise();
+            severConnectionEvent.Raise();
             ghost.GetComponent<GhostManager>().StartSever();
         } else {
             // Die

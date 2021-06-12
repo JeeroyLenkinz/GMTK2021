@@ -8,10 +8,6 @@ public class UI_SummonHealth : MonoBehaviour
 {
     [SerializeField]
     private FloatReference summonHealthSO;
-    [SerializeField]
-    private BoolReference isChanneling;
-    [SerializeField]
-    private BoolReference isMovingToGhost;
 
     private Image healthBar;
     private int imageWidth;
@@ -34,9 +30,7 @@ public class UI_SummonHealth : MonoBehaviour
 
     public void e_disableHealthBar()
     {
-        if (!isChanneling.Value || isMovingToGhost.Value) {
-            healthBar.enabled = false;
-        }
+        healthBar.enabled = false;
     }
 
     public void e_ChangeHealthBar()
