@@ -236,6 +236,8 @@ MonoBehaviour:
     _useConstant: 0
     _constantValue: 0
     _variable: {fileID: 11400000, guid: e83e3a225a55e4040b216d8bf63625ce, type: 2}
+  startChanneling: {fileID: 0}
+  endChanneling: {fileID: 0}
 --- !u!4 &1109056770
 Transform:
   m_ObjectHideFlags: 0
@@ -314,6 +316,22 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 614270341, guid: f601e37b6fa12b24aa8dd9e66c1227dc, type: 3}
+      propertyPath: _response.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 614270341, guid: f601e37b6fa12b24aa8dd9e66c1227dc, type: 3}
+      propertyPath: _response.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 614270341, guid: f601e37b6fa12b24aa8dd9e66c1227dc, type: 3}
+      propertyPath: _response.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 614270341, guid: f601e37b6fa12b24aa8dd9e66c1227dc, type: 3}
+      propertyPath: _response.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
+      value: HumanManager, Assembly-CSharp
+      objectReference: {fileID: 0}
     - target: {fileID: 8395581352987850147, guid: f601e37b6fa12b24aa8dd9e66c1227dc, type: 3}
       propertyPath: m_Name
       value: Player

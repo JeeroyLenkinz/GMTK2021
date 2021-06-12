@@ -11,6 +11,11 @@ public class MainMenu : MonoBehaviour
 
     }
 
+    public void QuitToTitle()
+    {
+        SceneManager.LoadScene("Title");
+    }
+
 
     public void QuitGame()
     {
