@@ -14,7 +14,6 @@ GameObject:
   - component: {fileID: 1106680338}
   - component: {fileID: 165431009}
   - component: {fileID: 165431010}
-  - component: {fileID: 8649636258062119345}
   m_Layer: 0
   m_Name: Ghost
   m_TagString: Untagged
@@ -169,8 +168,13 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 256
   teleportAmount: 2
+  channelHealthSO:
+    _useConstant: 0
+    _constantValue: 0
+    _variable: {fileID: 11400000, guid: 5d0f62423cd1de14ea56d35034bea8d4, type: 2}
   enemyHit: {fileID: 11400000, guid: 0b6d59c81647067428c1de8a2174251e, type: 2}
   player: {fileID: 0}
+  healthDecayMod: 2
 --- !u!114 &165431010
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -203,40 +207,3 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &8649636258062119345
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5555324825321703930}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 428677363afb0b04c9c8894e9f64c85a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  horizontalMove:
-    _useConstant: 0
-    _constantValue: 0
-    _variable: {fileID: 0}
-  verticalMove:
-    _useConstant: 0
-    _constantValue: 0
-    _variable: {fileID: 0}
-  isDashing:
-    _useConstant: 0
-    _constantValue: 0
-    _variable: {fileID: 0}
-  moveSpeed: 0
-  maxDashSpeed: 0
-  dashSpeedDropMultiplier: 0
-  isTeleporting:
-    _useConstant: 0
-    _constantValue: 0
-    _variable: {fileID: 0}
-  teleportLayerMask:
-    serializedVersion: 2
-    m_Bits: 0
-  teleportAmount: 0
-  enemyHit: {fileID: 11400000, guid: 0b6d59c81647067428c1de8a2174251e, type: 2}
-  player: {fileID: 0}

@@ -447,6 +447,8 @@ GameObject:
   - component: {fileID: 828724500}
   - component: {fileID: 828724502}
   - component: {fileID: 828724501}
+  - component: {fileID: 828724504}
+  - component: {fileID: 828724503}
   m_Layer: 5
   m_Name: Image
   m_TagString: Untagged
@@ -470,7 +472,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 0, y: 0.5}
-  m_AnchoredPosition: {x: 100.3, y: -311.99994}
+  m_AnchoredPosition: {x: 100.299805, y: -311.99994}
   m_SizeDelta: {x: 300, y: 40}
   m_Pivot: {x: 0, y: 0.49999985}
 --- !u!114 &828724501
@@ -511,6 +513,54 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 828724499}
   m_CullTransparentMesh: 0
+--- !u!114 &828724503
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 828724499}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5758ca93461aeeb4589456a052b07d74, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _showDebugFields: 0
+  _enableGizmoDebugging: 1
+  _debugColor: {r: 0, g: 1, b: 1, a: 1}
+  _previouslyRegisteredEvent: {fileID: 11400000, guid: 5d0f62423cd1de14ea56d35034bea8d4, type: 2}
+  _event: {fileID: 11400000, guid: 5d0f62423cd1de14ea56d35034bea8d4, type: 2}
+  _response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 828724504}
+        m_TargetAssemblyTypeName: UI_SummonHealth, Assembly-CSharp
+        m_MethodName: e_ChangeHealthBar
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &828724504
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 828724499}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4cc7b7d10cc90a74485a0bba90b8124b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  summonHealthSO:
+    _useConstant: 0
+    _constantValue: 0
+    _variable: {fileID: 11400000, guid: 5d0f62423cd1de14ea56d35034bea8d4, type: 2}
 --- !u!1001 &910847796
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -990,6 +1040,10 @@ PrefabInstance:
       propertyPath: player
       value: 
       objectReference: {fileID: 1297580188}
+    - target: {fileID: 165431009, guid: 111157c9bd81a8c4d8d7640dcf7519de, type: 3}
+      propertyPath: healthDecayMod
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 5555324825321703930, guid: 111157c9bd81a8c4d8d7640dcf7519de, type: 3}
       propertyPath: m_Name
       value: Ghost
@@ -1038,10 +1092,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 8649636258062119345, guid: 111157c9bd81a8c4d8d7640dcf7519de, type: 3}
-      propertyPath: player
-      value: 
-      objectReference: {fileID: 1297580188}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 111157c9bd81a8c4d8d7640dcf7519de, type: 3}
 --- !u!1001 &4813046766293984772
