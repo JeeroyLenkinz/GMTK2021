@@ -16,6 +16,9 @@ public class Enemy : MonoBehaviour
     public LayerMask playerLayer;
     [SerializeField]
     private GameEvent playerHitEvent;
+    private Vector2 explosionOrigin;
+    [SerializeField]
+    private GameObject explodedEnemyPrefab;
     private enum State {
         Moving,
         Attacking,
@@ -87,11 +90,23 @@ public class Enemy : MonoBehaviour
         return isChained;
     }
 
+    public void SetExplosionOrigin(Vector2 origin)
+    {
+        explosionOrigin = transform.InverseTransformPoint(origin);
+    }
+
     private void Detach()
     {
         isChained = false;
         nextAttached = null;
         lineRenderer.enabled = false;
+    }
+
+    public void Explode()
+    {
+        GameObject explosion = Instantiate(explodedEnemyPrefab, transform.position, Quaternion.identity);
+        explosion.GetComponent<ExplodeEnemy>().ExplodeMe(explosionOrigin);
+        Destroy(this.gameObject);
     }
 
     public void AttachNext(GameObject nextObj)

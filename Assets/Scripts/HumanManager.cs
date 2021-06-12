@@ -109,7 +109,8 @@ public class HumanManager : PlayerManager
                 Tween tween = transform.DOMove(enemy.transform.position, duration).SetEase(Ease.Linear);
                 yield return new WaitForSeconds(tween.Duration());
 
-                Destroy(enemy);
+                //Destroy(enemy);
+                enemy.GetComponent<Enemy>().Explode();
                 enemyDestroyedEvent.Raise();
 
             }

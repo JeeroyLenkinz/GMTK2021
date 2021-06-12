@@ -66,6 +66,7 @@ public class GhostManager : PlayerManager
             GameObject enemy = collision.gameObject;
             Enemy enemyLogic = enemy.GetComponent<Enemy>();
 
+
             if(chainedEnemies.Count == 0)             // If this is the first enemy hit
             {
                 player.GetComponent<PlayerChain>().AttachNext(enemy);
@@ -75,6 +76,8 @@ public class GhostManager : PlayerManager
 
             if (!enemyLogic.GetIsChained())     // If enemy is not already in the list
             {
+                Vector2 collidedPoint = collision.ClosestPoint(transform.position);
+                enemyLogic.SetExplosionOrigin(collidedPoint);
                 chainedEnemies[chainedEnemies.Count-1].GetComponent<Enemy>().AttachNext(enemy);
                 chainedEnemies.Add(enemy);
                 enemyLogic.AttachNext(this.gameObject);

@@ -32,14 +32,18 @@ public class PlayerManager : MonoBehaviour
     private LayerMask teleportLayerMask;
     public float teleportAmount;
 
-    private Sequence walkSeq;
+    private Animator animController;
+
+    bool isAlreadyWalking;
 
 
     private Rigidbody2D rb;
     // Start is called before the first frame update
     public void Awake() {
+        isAlreadyWalking = false;
         rb = GetComponent<Rigidbody2D>();
         state = State.Normal;
+        animController = GetComponentInChildren<Animator>();
     }
 
     public void Update() {
@@ -70,9 +74,23 @@ public class PlayerManager : MonoBehaviour
             case State.Normal:
                 if (moveDir.magnitude == 0) {
                     rb.velocity = Vector2.zero;
+                    if (isAlreadyWalking)
+                    {
+                        isAlreadyWalking = false;
+                        animController.SetTrigger("StopWalk");
+                        Debug.Log("Stop Walk Cylce");
+                    }
+
                 }
                 else {
                     rb.velocity = moveDir * moveSpeed;
+                    if (!isAlreadyWalking)
+                    {
+                        Debug.Log("Activate Walk Cylce");
+                        animController.SetTrigger("StartWalk");
+                        isAlreadyWalking = true;
+                    }
+
                 }
                 
                 if (isTeleporting.Value) {
@@ -111,26 +129,4 @@ public class PlayerManager : MonoBehaviour
         isTeleporting.Value = false;
     }
 
-    private void SetupWalkSeq()
-    {
-        float cycleTime = 0.75f; // The time to go from one extreme of cycle to the other
-
-        walkSeq.Append(transform.DOScaleX(2.5f, cycleTime / 2));
-        walkSeq.Join(transform.DOScaleY(3.5f, cycleTime / 2));
-
-        walkSeq.Join(transform.DOLocalRotate(new Vector3(-8f, 0f, 0f), cycleTime));
-
-        walkSeq.Append(transform.DOScaleX(3.5f, cycleTime / 2));
-        walkSeq.Join(transform.DOScaleY(2.5f, cycleTime / 2));
-
-
-
-        walkSeq.Append(transform.DOScaleX(2.5f, cycleTime / 2));
-        walkSeq.Join(transform.DOScaleY(3.5f, cycleTime / 2));
-
-        walkSeq.Join(transform.DOLocalRotate(new Vector3(8f, 0f, 0f), cycleTime));
-
-        walkSeq.Append(transform.DOScaleX(3.5f, cycleTime / 2));
-        walkSeq.Join(transform.DOScaleY(2.5f, cycleTime / 2));
-    }
 }

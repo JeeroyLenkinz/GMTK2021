@@ -75,7 +75,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   version: 1
-  uniqueID: 7531025211275038805
+  uniqueID: 5746473716997022017
   updateError: 1
   checkTime: 0.2
 --- !u!61 &685971710
@@ -533,6 +533,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 512
   playerHitEvent: {fileID: 11400000, guid: e60ca0dc07b53ea4085dc01929d16c81, type: 2}
+  explodedEnemyPrefab: {fileID: 4552951116703017611, guid: 0c7001df41bc1094993cad6fd8b75bcf, type: 3}
 --- !u!120 &29394755616124562
 LineRenderer:
   m_ObjectHideFlags: 0
