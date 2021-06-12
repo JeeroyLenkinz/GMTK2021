@@ -46,7 +46,7 @@ public class SpawnManager : MonoBehaviour
         float enemySpeed = Random.Range(minEnemySpeed, maxEnemySpeed);
         Vector2 spawnPos = Random.insideUnitCircle.normalized * spawnCircleRadius;
         GameObject spawnedEnemy = Instantiate(enemyPrefab, spawnPos, Quaternion.identity);
-        spawnedEnemy.GetComponent<AIDestinationSetter>().target = playerObj.transform;
+        spawnedEnemy.GetComponent<AIDestinationSetter>().target = playerObj.transform.Find("PathfindingTarget");
         spawnedEnemy.GetComponent<AIPath>().maxSpeed = enemySpeed;
         currentActiveEnemies++;
     }
