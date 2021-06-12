@@ -46,6 +46,12 @@ TagManager:
   - name: Background
     uniqueID: 1182030393
     locked: 0
+  - name: SetDressing
+    uniqueID: 752381643
+    locked: 0
+  - name: PhysicalObjects
+    uniqueID: 2924569251
+    locked: 0
   - name: Line
     uniqueID: 1989168581
     locked: 0
