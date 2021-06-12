@@ -52,7 +52,7 @@ MonoBehaviour:
   maxEnemySpeed: 2.5
   spawnCircleRadius: 10
   enemyPrefab: {fileID: 2753194330981907370, guid: 389d7ef6544b0754db6b8d65b8df675f, type: 3}
-  playerObj: {fileID: 0}
+  playerObj: {fileID: 8395581352987850147, guid: f601e37b6fa12b24aa8dd9e66c1227dc, type: 3}
   score:
     _useConstant: 0
     _constantValue: 0
