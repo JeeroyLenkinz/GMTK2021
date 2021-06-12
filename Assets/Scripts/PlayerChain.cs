@@ -13,6 +13,7 @@ public class PlayerChain : MonoBehaviour
     {
         lineRenderer = GetComponent<LineRenderer>();
         lineRenderer.widthMultiplier = 0.3f;
+        lineRenderer.enabled = false;
     }
 
     // Start is called before the first frame update
@@ -49,5 +50,10 @@ public class PlayerChain : MonoBehaviour
     public void AttachNext(GameObject nextObj)
     {
         nextAttached = nextObj;
+    }
+
+    public void OnSummon()
+    {
+        lineRenderer.enabled = true;
     }
 }

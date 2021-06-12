@@ -20,8 +20,10 @@ public class GhostManager : PlayerManager
 
     public void e_StopChanneling() {
         if (!getIsDashing()) {
-            gameObject.SetActive(false);
+
             player.GetComponent<PlayerManager>().enableMovement();
+            StartCoroutine(StopChannelCoroutine());
+            gameObject.SetActive(false);
         }
     }
 
@@ -48,5 +50,11 @@ public class GhostManager : PlayerManager
             }
 
         }
+    }
+
+    private IEnumerator StopChannelCoroutine()
+    {
+        player.GetComponent<HumanManager>().MoveToGhost(chainedEnemies);
+        yield return null;
     }
 }
