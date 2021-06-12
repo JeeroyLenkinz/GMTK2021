@@ -12,7 +12,8 @@ GameObject:
   - component: {fileID: 5677049631725926353}
   - component: {fileID: 4137949905180811036}
   - component: {fileID: 1396575435464357438}
-  m_Layer: 0
+  - component: {fileID: 359266726188307166}
+  m_Layer: 10
   m_Name: _nemy-Body
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -71,7 +72,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1411170263
-  m_SortingLayer: 5
+  m_SortingLayer: 7
   m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: 5a17be62e668443ee9808576255a8cf3, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -156,6 +157,18 @@ PolygonCollider2D:
       - {x: 0.084472656, y: -0.09863281}
       - {x: 0.08544922, y: -0.095703125}
       - {x: 0.088378906, y: -0.08203125}
+--- !u!114 &359266726188307166
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 430821433111898199}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2eb2af2ae9618144cb7bb1ad651df975, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &775305742769687939
 GameObject:
   m_ObjectHideFlags: 0
@@ -168,7 +181,8 @@ GameObject:
   - component: {fileID: 1351897820985493417}
   - component: {fileID: 7464134473660965469}
   - component: {fileID: 5682918873825526479}
-  m_Layer: 0
+  - component: {fileID: 50076637472366435}
+  m_Layer: 10
   m_Name: _lub
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -227,7 +241,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1411170263
-  m_SortingLayer: 5
+  m_SortingLayer: 7
   m_SortingOrder: 5
   m_Sprite: {fileID: 21300000, guid: baa56a68c163f4ec4a2a58b4dff6348a, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -361,6 +375,18 @@ PolygonCollider2D:
       - {x: 0.03226486, y: -0.033332363}
       - {x: 0.0127336085, y: 0.0145192}
       - {x: 0.005897671, y: 0.020378575}
+--- !u!114 &50076637472366435
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 775305742769687939}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2eb2af2ae9618144cb7bb1ad651df975, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &837686926702758458
 GameObject:
   m_ObjectHideFlags: 0
@@ -373,7 +399,8 @@ GameObject:
   - component: {fileID: 3824730150475922892}
   - component: {fileID: 1109062995799289126}
   - component: {fileID: 6005442212179252560}
-  m_Layer: 0
+  - component: {fileID: 9170427980723846443}
+  m_Layer: 10
   m_Name: _nemy-LegFront
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -432,7 +459,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1411170263
-  m_SortingLayer: 5
+  m_SortingLayer: 7
   m_SortingOrder: 2
   m_Sprite: {fileID: 21300000, guid: 6536defb0f8ae406887d930ee3e1fd1e, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -504,6 +531,18 @@ PolygonCollider2D:
       - {x: -0.012912327, y: -0.07229116}
       - {x: 0.045681424, y: -0.07229116}
       - {x: 0.045681424, y: -0.0010020956}
+--- !u!114 &9170427980723846443
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 837686926702758458}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2eb2af2ae9618144cb7bb1ad651df975, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &4552951116703017611
 GameObject:
   m_ObjectHideFlags: 0
@@ -618,7 +657,8 @@ GameObject:
   - component: {fileID: 8086005133351788746}
   - component: {fileID: 2493549096926816193}
   - component: {fileID: 4063419803766225565}
-  m_Layer: 0
+  - component: {fileID: 1059402251031301222}
+  m_Layer: 10
   m_Name: Enemy Arm-Front
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -677,7 +717,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1411170263
-  m_SortingLayer: 5
+  m_SortingLayer: 7
   m_SortingOrder: 3
   m_Sprite: {fileID: 21300000, guid: ff22c47b7b76d4e37a959434b17d40b0, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -769,6 +809,18 @@ PolygonCollider2D:
       - {x: -0.066080734, y: -0.13432284}
       - {x: -0.05240886, y: -0.12358065}
       - {x: -0.055338547, y: -0.11674471}
+--- !u!114 &1059402251031301222
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4662113813299542422}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2eb2af2ae9618144cb7bb1ad651df975, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &6155868035163043555
 GameObject:
   m_ObjectHideFlags: 0
@@ -781,7 +833,8 @@ GameObject:
   - component: {fileID: 2270962069691538117}
   - component: {fileID: 5310474719619108439}
   - component: {fileID: 5095144003489663703}
-  m_Layer: 0
+  - component: {fileID: 1773135883601921246}
+  m_Layer: 10
   m_Name: Enemy Arm-Back
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -841,7 +894,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1411170263
-  m_SortingLayer: 5
+  m_SortingLayer: 7
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: ff22c47b7b76d4e37a959434b17d40b0, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -933,6 +986,18 @@ PolygonCollider2D:
       - {x: -0.066080734, y: -0.13432284}
       - {x: -0.05240886, y: -0.12358065}
       - {x: -0.055338547, y: -0.11674471}
+--- !u!114 &1773135883601921246
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6155868035163043555}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2eb2af2ae9618144cb7bb1ad651df975, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &7267557626355939334
 GameObject:
   m_ObjectHideFlags: 0
@@ -945,7 +1010,8 @@ GameObject:
   - component: {fileID: 5509718085201445544}
   - component: {fileID: 1974270622236631603}
   - component: {fileID: 4053695224763350751}
-  m_Layer: 0
+  - component: {fileID: 4419504595706502717}
+  m_Layer: 10
   m_Name: Enemy-helmet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1004,7 +1070,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1411170263
-  m_SortingLayer: 5
+  m_SortingLayer: 7
   m_SortingOrder: 3
   m_Sprite: {fileID: 21300000, guid: d2dd33be1cae349f4a5766b158806f4e, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -1096,6 +1162,18 @@ PolygonCollider2D:
       - {x: 0.032399427, y: 0.1600318}
       - {x: 0.035329115, y: 0.15026617}
       - {x: 0.035329115, y: 0.15124273}
+--- !u!114 &4419504595706502717
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7267557626355939334}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2eb2af2ae9618144cb7bb1ad651df975, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &8172468021855809694
 GameObject:
   m_ObjectHideFlags: 0
@@ -1108,7 +1186,8 @@ GameObject:
   - component: {fileID: 8168031530309731155}
   - component: {fileID: 7065775378496235155}
   - component: {fileID: 1165599809833738153}
-  m_Layer: 0
+  - component: {fileID: 6531791208711484495}
+  m_Layer: 10
   m_Name: _nemy-LegBack
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1167,7 +1246,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1411170263
-  m_SortingLayer: 5
+  m_SortingLayer: 7
   m_SortingOrder: 2
   m_Sprite: {fileID: 21300000, guid: 6536defb0f8ae406887d930ee3e1fd1e, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -1239,3 +1318,15 @@ PolygonCollider2D:
       - {x: -0.012912327, y: -0.07229116}
       - {x: 0.045681424, y: -0.07229116}
       - {x: 0.045681424, y: -0.0010020956}
+--- !u!114 &6531791208711484495
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8172468021855809694}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2eb2af2ae9618144cb7bb1ad651df975, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
