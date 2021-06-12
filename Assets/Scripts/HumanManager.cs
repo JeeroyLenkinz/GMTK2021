@@ -23,21 +23,26 @@ public class HumanManager : PlayerManager
     private PlayerChain pChain;
     [SerializeField]
     private BoolReference isSevered;
+    [SerializeField]
+    private BoolReference isMovingToGhost;
+    [SerializeField]
+    private GameEvent gameOverEvent;
 
-    private new void Awake() {
-        base.Awake();
-        isChanneling.Value = false;
-    }
+    // private new void Awake() {
+    //     base.Awake();
+    // }
     
     void Start()
     {
         isSevered.Value = false;
+        isChanneling.Value = false;
         ghost.SetActive(false);
         pChain = GetComponent<PlayerChain>();
     }
 
     public void e_channelTriggered() {
         if (isChanneling.Value) {
+            isMovingToGhost.Value = true;
             stopChanneling.Raise(); // Camera and FX manager hears this, and will trigger an FX done event to do the actual mechanix
         } else {
             startChanneling.Raise();
@@ -70,7 +75,6 @@ public class HumanManager : PlayerManager
     private IEnumerator SeverConnectionCoroutine()
     {
         pChain.Detach();
-        // Debug.Log("Hii");
         yield return null;
     }
 
@@ -130,6 +134,17 @@ public class HumanManager : PlayerManager
     void OnTriggerEnter2D(Collider2D other) {
         if (other.gameObject.tag == "Ghost" && isSevered.Value) {
             reconnectToGhost();
+        }
+    }
+
+    public void e_getHit() {
+        if (isChanneling.Value) {
+            // Initiate sever
+            stopChanneling.Raise();
+            ghost.GetComponent<GhostManager>().StartSever();
+        } else {
+            // Die
+            gameOverEvent.Raise();
         }
     }
 }

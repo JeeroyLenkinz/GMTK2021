@@ -22,6 +22,8 @@ public class GhostManager : PlayerManager
     private bool isWaiting;
     [SerializeField]
     private BoolReference isSevered;
+    [SerializeField]
+    private BoolReference isMovingToGhost;
 
     public float healthDecayMod;
 
@@ -30,6 +32,7 @@ public class GhostManager : PlayerManager
         base.Awake();
         isWaiting = false;
         isSevered.Value = false;
+        isMovingToGhost.Value = false;
         chainedEnemies.Clear();
 
     }
@@ -44,12 +47,9 @@ public class GhostManager : PlayerManager
         base.Update();
         channelHealthSO.Value -= Time.deltaTime*healthDecayMod;
         channelHealthSO.Value = Mathf.Clamp(channelHealthSO.Value, 0, 100);
-        if(channelHealthSO.Value == 0 && !isSevered.Value)
+        if(channelHealthSO.Value == 0 && !isSevered.Value && !isMovingToGhost.Value)
         {
-            isSevered.Value = true;
-            isChanneling.Value = false;
-            chainedEnemies.Clear();
-            StartCoroutine(SeverConnection());
+            StartSever();
         }
     }
 
@@ -101,8 +101,15 @@ public class GhostManager : PlayerManager
         enableMovement();
         gameObject.SetActive(false);
         isChanneling.Value = false;
+        isMovingToGhost.Value = false;
     }
 
+    public void StartSever() {
+        isSevered.Value = true;
+        isChanneling.Value = false;
+        chainedEnemies.Clear();
+        StartCoroutine(SeverConnection());
+    }
     private IEnumerator SeverConnection()
     {
         disableMovement();
