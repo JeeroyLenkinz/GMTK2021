@@ -9,6 +9,8 @@ public class HumanManager : PlayerManager
 {
     [SerializeField]
     private GameObject ghost;
+    [SerializeField]
+    private GameEvent enemyDestroyedEvent;
 
     public float moveToGhostSpeed;
 
@@ -60,6 +62,7 @@ public class HumanManager : PlayerManager
                 yield return new WaitForSeconds(tween.Duration());
 
                 Destroy(enemy);
+                enemyDestroyedEvent.Raise();
 
             }
 

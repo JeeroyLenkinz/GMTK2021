@@ -272,6 +272,7 @@ MonoBehaviour:
     m_Bits: 256
   teleportAmount: 2
   ghost: {fileID: 0}
+  enemyDestroyedEvent: {fileID: 11400000, guid: 93ef3f6226478b5478e1391184864caf, type: 2}
   moveToGhostSpeed: 20
 --- !u!114 &614270341
 MonoBehaviour:
