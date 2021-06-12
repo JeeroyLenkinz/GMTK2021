@@ -45,8 +45,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spawnMultiplier: 1
-  minSpawnCooldownSeconds: 0
-  maxSpawnCooldownSeconds: 0
+  minSpawnCooldownSeconds: 0.3
+  maxSpawnCooldownSeconds: 1
   waveCooldownSeconds: 5
   minEnemySpeed: 0.5
   maxEnemySpeed: 2.5

@@ -35,6 +35,9 @@ public class PlayerManager : MonoBehaviour
     private Animator animController;
 
     bool isAlreadyWalking;
+    public AudioSource audioSource;
+    [SerializeField]
+    private AudioClip dashSFX;
 
 
     private Rigidbody2D rb;

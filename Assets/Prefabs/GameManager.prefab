@@ -45,6 +45,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f1319b7f1399f7e4587347eacd91892c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  waitBeforeTransitionSeconds: 4
 --- !u!114 &5007646383731257775
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -60,7 +61,7 @@ MonoBehaviour:
   _showDebugFields: 0
   _enableGizmoDebugging: 1
   _debugColor: {r: 0, g: 1, b: 1, a: 1}
-  _previouslyRegisteredEvent: {fileID: 0}
+  _previouslyRegisteredEvent: {fileID: 11400000, guid: ff4597689aadcd94eb20da621ef398bd, type: 2}
   _event: {fileID: 11400000, guid: ff4597689aadcd94eb20da621ef398bd, type: 2}
   _response:
     m_PersistentCalls:
@@ -92,7 +93,7 @@ MonoBehaviour:
   _showDebugFields: 0
   _enableGizmoDebugging: 1
   _debugColor: {r: 0, g: 1, b: 1, a: 1}
-  _previouslyRegisteredEvent: {fileID: 0}
+  _previouslyRegisteredEvent: {fileID: 11400000, guid: aee14cab07a9a9c4e91d164e06426489, type: 2}
   _event: {fileID: 11400000, guid: aee14cab07a9a9c4e91d164e06426489, type: 2}
   _response:
     m_PersistentCalls:
