@@ -45,19 +45,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spawnMultiplier: 1
-  maxAllowableEnemies: 10
-  minSpawnCooldown: 0.1
-  maxSpawnCooldown: 0.3
+  minSpawnCooldownSeconds: 0
+  maxSpawnCooldownSeconds: 0
+  waveCooldownSeconds: 5
   minEnemySpeed: 0.5
   maxEnemySpeed: 2.5
   spawnCircleRadius: 10
   enemyPrefab: {fileID: 2753194330981907370, guid: 389d7ef6544b0754db6b8d65b8df675f, type: 3}
   playerObj: {fileID: 0}
+  victoryEvent: {fileID: 11400000, guid: aee14cab07a9a9c4e91d164e06426489, type: 2}
   score:
     _useConstant: 0
     _constantValue: 0
     _variable: {fileID: 11400000, guid: 9c696486ef3ad0e43ba598377f2cb9db, type: 2}
   scoreIncrementAmount: 1
+  enemiesPerWave: 0a0000000f00000014000000
 --- !u!114 &1565109039
 MonoBehaviour:
   m_ObjectHideFlags: 0
