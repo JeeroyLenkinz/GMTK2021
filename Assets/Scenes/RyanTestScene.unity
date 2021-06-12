@@ -823,6 +823,10 @@ PrefabInstance:
       propertyPath: ghost
       value: 
       objectReference: {fileID: 165431008}
+    - target: {fileID: 5332842215474773031, guid: f601e37b6fa12b24aa8dd9e66c1227dc, type: 3}
+      propertyPath: m_Positions.Array.data[1].z
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8395581352987850147, guid: f601e37b6fa12b24aa8dd9e66c1227dc, type: 3}
       propertyPath: m_Name
       value: Player
