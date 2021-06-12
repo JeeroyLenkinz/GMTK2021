@@ -6,6 +6,8 @@ using ScriptableObjectArchitecture;
 public class GhostManager : PlayerManager
 {
     [SerializeField]
+    private FloatReference channelHealthSO;
+    [SerializeField]
     private GameObjectGameEvent enemyHit;
     [SerializeField]
     private GameObject player;
@@ -13,11 +15,25 @@ public class GhostManager : PlayerManager
     private List<GameObject> chainedEnemies = new List<GameObject>();
     private bool isWaiting;
 
+    public float healthDecayMod;
+
     private new void Awake()
     {
         base.Awake();
         isWaiting = false;
         chainedEnemies.Clear();
+        channelHealthSO.Value = 100;
+    }
+
+    private new void Update()
+    {
+        base.Update();
+        channelHealthSO.Value -= Time.deltaTime*healthDecayMod;
+        Mathf.Clamp(channelHealthSO.Value, 0, 100);
+        if(channelHealthSO.Value == 0)
+        {
+            // Sever
+        }
     }
 
     public void e_StopChanneling() {
@@ -47,6 +63,8 @@ public class GhostManager : PlayerManager
                 enemyLogic.AttachNext(this.gameObject);
                 enemyHit.Raise(enemy);
             }
+
+            channelHealthSO.Value += 5;
 
         }
     }
