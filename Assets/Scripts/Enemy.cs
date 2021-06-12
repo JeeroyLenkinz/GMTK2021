@@ -1,12 +1,26 @@
-﻿using System.Collections;
+﻿using ScriptableObjectArchitecture;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Pathfinding;
 
 public class Enemy : MonoBehaviour
 {
     private bool isChained;
     private LineRenderer lineRenderer;
     private GameObject nextAttached;
+    private AIPath aiPath;
+    [SerializeField]
+    private Transform attackPoint;
+    public float attackRange = 0.5f;
+    public LayerMask playerLayer;
+    [SerializeField]
+    private GameEvent playerHitEvent;
+    private enum State {
+        Moving,
+        Attacking,
+    }
+    private State state;
 
     private void Awake()
     {
@@ -15,6 +29,8 @@ public class Enemy : MonoBehaviour
 
         lineRenderer = GetComponent<LineRenderer>();
         lineRenderer.widthMultiplier = 0.3f;
+        aiPath = GetComponent<AIPath>();
+        state = State.Moving;
     }
 
     // Start is called before the first frame update
@@ -26,6 +42,11 @@ public class Enemy : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (aiPath.reachedEndOfPath && state == State.Moving) {
+            state = State.Attacking;
+            aiPath.isStopped = true;
+            StartCoroutine(Attack());
+        }
         UpdateLineRenderer();
     }
 
@@ -41,6 +62,24 @@ public class Enemy : MonoBehaviour
             lineRenderer.SetPosition(0, transform.position);
             lineRenderer.SetPosition(1, nextAttached.transform.position);
         }
+    }
+
+    private IEnumerator Attack() {
+        // Begin attack animations
+        Debug.Log("Starting windup!");
+        // Yield for whatever the duration of the windup is
+        yield return new WaitForSeconds(1.5f);
+        Debug.Log("Swing!");
+        Collider2D[] hitPlayers = Physics2D.OverlapCircleAll(attackPoint.position, attackRange, playerLayer);
+        if (hitPlayers.Length > 0) {
+            // Player has been hit
+            Debug.Log("Player Hit!");
+            playerHitEvent.Raise();
+        }
+        // Slight cooldown before chasing again
+        yield return new WaitForSeconds(1.5f);
+        state = State.Moving;
+        aiPath.isStopped = false;
     }
 
     public bool GetIsChained()
@@ -67,4 +106,10 @@ public class Enemy : MonoBehaviour
         Detach();
     }
 
+    void OnDrawGizmosSelected() {
+        if (attackPoint == null) {
+            return;
+        }
+        Gizmos.DrawWireSphere(attackPoint.position, attackRange);
+    }
 }
