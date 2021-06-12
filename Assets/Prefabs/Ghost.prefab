@@ -179,7 +179,7 @@ MonoBehaviour:
     _useConstant: 0
     _constantValue: 0
     _variable: {fileID: 11400000, guid: e9683339dbdde9f44ba5d357829346d9, type: 2}
-  healthDecayMod: 2
+  healthDecayMod: 25
 --- !u!114 &165431010
 MonoBehaviour:
   m_ObjectHideFlags: 0
