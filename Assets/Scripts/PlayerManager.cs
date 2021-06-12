@@ -1,4 +1,5 @@
-﻿using ScriptableObjectArchitecture;
+﻿using DG.Tweening;
+using ScriptableObjectArchitecture;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -30,6 +31,8 @@ public class PlayerManager : MonoBehaviour
     [SerializeField]
     private LayerMask teleportLayerMask;
     public float teleportAmount;
+
+    private Sequence walkSeq;
 
 
     private Rigidbody2D rb;
@@ -106,5 +109,28 @@ public class PlayerManager : MonoBehaviour
 
         rb.MovePosition(teleportPosition);
         isTeleporting.Value = false;
+    }
+
+    private void SetupWalkSeq()
+    {
+        float cycleTime = 0.75f; // The time to go from one extreme of cycle to the other
+
+        walkSeq.Append(transform.DOScaleX(2.5f, cycleTime / 2));
+        walkSeq.Join(transform.DOScaleY(3.5f, cycleTime / 2));
+
+        walkSeq.Join(transform.DOLocalRotate(new Vector3(-8f, 0f, 0f), cycleTime));
+
+        walkSeq.Append(transform.DOScaleX(3.5f, cycleTime / 2));
+        walkSeq.Join(transform.DOScaleY(2.5f, cycleTime / 2));
+
+
+
+        walkSeq.Append(transform.DOScaleX(2.5f, cycleTime / 2));
+        walkSeq.Join(transform.DOScaleY(3.5f, cycleTime / 2));
+
+        walkSeq.Join(transform.DOLocalRotate(new Vector3(8f, 0f, 0f), cycleTime));
+
+        walkSeq.Append(transform.DOScaleX(3.5f, cycleTime / 2));
+        walkSeq.Join(transform.DOScaleY(2.5f, cycleTime / 2));
     }
 }

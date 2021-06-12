@@ -25,7 +25,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 376148617211666648}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.264, y: 0.14099991, z: -0.029512962}
+  m_LocalPosition: {x: -0.211, y: 0.53, z: -0.029512962}
   m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_Children: []
   m_Father: {fileID: 6893340945977455060}
@@ -107,7 +107,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3781564984251143146}
   m_LocalRotation: {x: -0, y: -0, z: 0.23055924, w: 0.9730583}
-  m_LocalPosition: {x: -0.358, y: 0.265, z: 0}
+  m_LocalPosition: {x: -0.30500004, y: 0.6540001, z: 0}
   m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_Children: []
   m_Father: {fileID: 6893340945977455060}
@@ -189,7 +189,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4932365326277805975}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.22800002, y: -0.0040000677, z: 0}
+  m_LocalPosition: {x: 0.281, y: 0.38500002, z: 0}
   m_LocalScale: {x: -0.5, y: 0.5, z: 0.5}
   m_Children: []
   m_Father: {fileID: 6893340945977455060}
@@ -266,7 +266,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &6893340945977455060
 Transform:
   m_ObjectHideFlags: 0
@@ -460,7 +460,7 @@ PolygonCollider2D:
   m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
+    pivot: {x: 0.367946, y: 0.03567536}
     oldSize: {x: 0.5, y: 0.7949219}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
