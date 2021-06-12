@@ -48,15 +48,22 @@ public class Enemy : MonoBehaviour
         return isChained;
     }
 
-    public void Detach()
+    private void Detach()
     {
-        
+        isChained = false;
+        nextAttached = null;
+        lineRenderer.enabled = false;
     }
 
     public void AttachNext(GameObject nextObj)
     {
         isChained = true;
         nextAttached = nextObj;
+    }
+
+    public void e_ConnectionSevered()
+    {
+        Detach();
     }
 
 }

@@ -23,6 +23,16 @@ public class UI_SummonHealth : MonoBehaviour
         
     }
 
+    public void e_StartChanneling()
+    {
+        healthBar.enabled = true;
+    }
+
+    public void e_StopChanneling()
+    {
+        healthBar.enabled = false;
+    }
+
     public void e_ChangeHealthBar()
     {
         healthBar.rectTransform.localScale = new Vector3(summonHealthSO.Value/100, 1f, 1f);

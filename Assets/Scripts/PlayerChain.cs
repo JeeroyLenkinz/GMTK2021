@@ -44,7 +44,8 @@ public class PlayerChain : MonoBehaviour
 
     public void Detach()
     {
-
+        nextAttached = null;
+        lineRenderer.enabled = false;
     }
 
     public void AttachNext(GameObject nextObj)

@@ -10,10 +10,13 @@ public class GhostManager : PlayerManager
     [SerializeField]
     private GameObjectGameEvent enemyHit;
     [SerializeField]
+    private GameEvent severConnectionEvent;
+    [SerializeField]
     private GameObject player;
 
     private List<GameObject> chainedEnemies = new List<GameObject>();
     private bool isWaiting;
+    private bool isSevered;
 
     public float healthDecayMod;
 
@@ -21,7 +24,13 @@ public class GhostManager : PlayerManager
     {
         base.Awake();
         isWaiting = false;
+        isSevered = false;
         chainedEnemies.Clear();
+
+    }
+
+    private void OnEnable()
+    {
         channelHealthSO.Value = 100;
     }
 
@@ -29,15 +38,16 @@ public class GhostManager : PlayerManager
     {
         base.Update();
         channelHealthSO.Value -= Time.deltaTime*healthDecayMod;
-        Mathf.Clamp(channelHealthSO.Value, 0, 100);
-        if(channelHealthSO.Value == 0)
+        channelHealthSO.Value = Mathf.Clamp(channelHealthSO.Value, 0, 100);
+        if(channelHealthSO.Value == 0 && !isSevered)
         {
-            // Sever
+            isSevered = true;
+            StartCoroutine(SeverConnection());
         }
     }
 
     public void e_StopChanneling() {
-        if (!getIsDashing()) {
+        if (!getIsDashing() && !isSevered) {
             StartCoroutine(StopChannelCoroutine());
         }
     }
@@ -84,8 +94,22 @@ public class GhostManager : PlayerManager
         gameObject.SetActive(false);
     }
 
+    private IEnumerator SeverConnection()
+    {
+        isSevered = true;
+        disableMovement();
+        severConnectionEvent.Raise();         // Will move Camera to Player - Have lines fade
+        yield return new WaitForSeconds(0.25f);
+        // Do FX stuff here
+        player.GetComponent<PlayerManager>().enableMovement();
+        // Start pulsing or looking lost or whatever
+        yield return null;
+    }
+
     public void StopWaiting()
     {
         isWaiting = false;
     }
+
+
 }

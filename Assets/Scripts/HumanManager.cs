@@ -15,15 +15,17 @@ public class HumanManager : PlayerManager
     public float moveToGhostSpeed;
 
     private PlayerChain pChain;
+    private bool isSevered;
 
     void Start()
     {
+        isSevered = false;
         ghost.SetActive(false);
         pChain = GetComponent<PlayerChain>();
     }
 
     public void e_startChanneling() {
-        if (!getIsDashing()) {
+        if (!getIsDashing() && !isSevered) {
             disableMovement();
             ghost.transform.position = gameObject.transform.position;
             ghost.SetActive(true);
@@ -35,6 +37,19 @@ public class HumanManager : PlayerManager
     {
         GetComponent<CircleCollider2D>().enabled = false;
         StartCoroutine(MoveToGhostCoroutine(chainedEnemies));
+    }
+
+    public void SeverConnection()
+    {
+        isSevered = true;
+        StartCoroutine(SeverConnectionCoroutine());
+    }
+
+    private IEnumerator SeverConnectionCoroutine()
+    {
+        pChain.Detach();
+        Debug.Log("Hii");
+        yield return null;
     }
 
     private IEnumerator MoveToGhostCoroutine(List<GameObject> chainedEnemies)
