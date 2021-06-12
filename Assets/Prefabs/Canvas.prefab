@@ -96,14 +96,6 @@ MonoBehaviour:
     _useConstant: 0
     _constantValue: 0
     _variable: {fileID: 11400000, guid: 5d0f62423cd1de14ea56d35034bea8d4, type: 2}
-  isChanneling:
-    _useConstant: 0
-    _constantValue: 0
-    _variable: {fileID: 11400000, guid: e9683339dbdde9f44ba5d357829346d9, type: 2}
-  isMovingToGhost:
-    _useConstant: 0
-    _constantValue: 0
-    _variable: {fileID: 11400000, guid: e28a30906b13179448baaa8a7781d491, type: 2}
 --- !u!114 &8359394773759971227
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -183,8 +175,8 @@ MonoBehaviour:
   _showDebugFields: 0
   _enableGizmoDebugging: 1
   _debugColor: {r: 0, g: 1, b: 1, a: 1}
-  _previouslyRegisteredEvent: {fileID: 11400000, guid: e9683339dbdde9f44ba5d357829346d9, type: 2}
-  _event: {fileID: 11400000, guid: e9683339dbdde9f44ba5d357829346d9, type: 2}
+  _previouslyRegisteredEvent: {fileID: 11400000, guid: 2db3af13f0e66ef4fa7eef5cfae85118, type: 2}
+  _event: {fileID: 11400000, guid: 2db3af13f0e66ef4fa7eef5cfae85118, type: 2}
   _response:
     m_PersistentCalls:
       m_Calls:
@@ -215,8 +207,8 @@ MonoBehaviour:
   _showDebugFields: 0
   _enableGizmoDebugging: 1
   _debugColor: {r: 0, g: 1, b: 1, a: 1}
-  _previouslyRegisteredEvent: {fileID: 11400000, guid: e28a30906b13179448baaa8a7781d491, type: 2}
-  _event: {fileID: 11400000, guid: e28a30906b13179448baaa8a7781d491, type: 2}
+  _previouslyRegisteredEvent: {fileID: 11400000, guid: d7a5c46526a158846b58a0b1e1c33501, type: 2}
+  _event: {fileID: 11400000, guid: d7a5c46526a158846b58a0b1e1c33501, type: 2}
   _response:
     m_PersistentCalls:
       m_Calls:

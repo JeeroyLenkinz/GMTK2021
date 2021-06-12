@@ -27,6 +27,8 @@ public class HumanManager : PlayerManager
     private BoolReference isMovingToGhost;
     [SerializeField]
     private GameEvent gameOverEvent;
+    [SerializeField]
+    private GameEvent severConnectionEvent;
 
     // private new void Awake() {
     //     base.Awake();
@@ -63,7 +65,7 @@ public class HumanManager : PlayerManager
 
     public void MoveToGhost(List<GameObject> chainedEnemies)
     {
-        GetComponent<CircleCollider2D>().enabled = false;
+        GetComponent<PolygonCollider2D>().enabled = false;
         StartCoroutine(MoveToGhostCoroutine(chainedEnemies));
     }
 
@@ -127,7 +129,7 @@ public class HumanManager : PlayerManager
     private void EndOfDash()
     {
         GetComponent<LineRenderer>().enabled = false;
-        GetComponent<CircleCollider2D>().enabled = true;
+        GetComponent<PolygonCollider2D>().enabled = true;
         ghost.GetComponent<GhostManager>().StopWaiting();
     }
 
@@ -140,7 +142,7 @@ public class HumanManager : PlayerManager
     public void e_getHit() {
         if (isChanneling.Value) {
             // Initiate sever
-            stopChanneling.Raise();
+            severConnectionEvent.Raise();
             ghost.GetComponent<GhostManager>().StartSever();
         } else {
             // Die
