@@ -18,7 +18,8 @@ GameObject:
   - component: {fileID: 614270341}
   - component: {fileID: 1879409822683755388}
   - component: {fileID: 614270342}
-  m_Layer: 0
+  - component: {fileID: 614270350}
+  m_Layer: 9
   m_Name: Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -169,7 +170,7 @@ LineRenderer:
   m_SortingOrder: 0
   m_Positions:
   - {x: 0, y: 0, z: 0}
-  - {x: 0, y: 0, z: 1}
+  - {x: 0, y: 0, z: 0}
   m_Parameters:
     serializedVersion: 3
     widthMultiplier: 1
@@ -286,6 +287,11 @@ MonoBehaviour:
     _useConstant: 0
     _constantValue: 0
     _variable: {fileID: 11400000, guid: 836c73b6be9b85e48a798c2b5ea213b8, type: 2}
+  isMovingToGhost:
+    _useConstant: 0
+    _constantValue: 0
+    _variable: {fileID: 11400000, guid: e28a30906b13179448baaa8a7781d491, type: 2}
+  gameOverEvent: {fileID: 11400000, guid: ff4597689aadcd94eb20da621ef398bd, type: 2}
 --- !u!114 &614270341
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -373,6 +379,38 @@ MonoBehaviour:
       - m_Target: {fileID: 614270340}
         m_TargetAssemblyTypeName: HumanManager, Assembly-CSharp
         m_MethodName: e_SeverConnection
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &614270350
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8395581352987850147}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5758ca93461aeeb4589456a052b07d74, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _showDebugFields: 0
+  _enableGizmoDebugging: 1
+  _debugColor: {r: 0, g: 1, b: 1, a: 1}
+  _previouslyRegisteredEvent: {fileID: 11400000, guid: e60ca0dc07b53ea4085dc01929d16c81, type: 2}
+  _event: {fileID: 11400000, guid: e60ca0dc07b53ea4085dc01929d16c81, type: 2}
+  _response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 614270340}
+        m_TargetAssemblyTypeName: HumanManager, Assembly-CSharp
+        m_MethodName: e_getHit
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
