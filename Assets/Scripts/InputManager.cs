@@ -12,10 +12,7 @@ public class InputManager : MonoBehaviour
     [SerializeField]
     private BoolReference isDashing;
     [SerializeField]
-    private GameEvent startChanneling;
-    [SerializeField]
-    private GameEvent endChanneling;
-    private bool isChanneling;
+    private GameEvent channelTriggered;
     // Start is called before the first frame update
     void Awake()
     {
@@ -33,14 +30,7 @@ public class InputManager : MonoBehaviour
             isDashing.Value = true;
         }
         if (Input.GetButtonDown("Channel")) {
-            if (isChanneling) {
-                isChanneling = false;
-                endChanneling.Raise();
-            }
-            else {
-                isChanneling = true;
-                startChanneling.Raise();
-            }
+            channelTriggered.Raise();
         }
     }
 }

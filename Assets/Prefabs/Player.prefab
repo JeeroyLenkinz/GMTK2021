@@ -16,6 +16,8 @@ GameObject:
   - component: {fileID: 3871319337761648029}
   - component: {fileID: 614270340}
   - component: {fileID: 614270341}
+  - component: {fileID: 1879409822683755388}
+  - component: {fileID: 614270342}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -273,6 +275,12 @@ MonoBehaviour:
   teleportAmount: 2
   ghost: {fileID: 0}
   enemyDestroyedEvent: {fileID: 11400000, guid: 93ef3f6226478b5478e1391184864caf, type: 2}
+  isChanneling:
+    _useConstant: 0
+    _constantValue: 0
+    _variable: {fileID: 11400000, guid: e9683339dbdde9f44ba5d357829346d9, type: 2}
+  startChanneling: {fileID: 11400000, guid: 24ebdd2b2bbb74f458fb35836365ca4e, type: 2}
+  stopChanneling: {fileID: 11400000, guid: 2db3af13f0e66ef4fa7eef5cfae85118, type: 2}
   moveToGhostSpeed: 20
 --- !u!114 &614270341
 MonoBehaviour:
@@ -297,6 +305,70 @@ MonoBehaviour:
       - m_Target: {fileID: 614270340}
         m_TargetAssemblyTypeName: HumanManager, Assembly-CSharp
         m_MethodName: e_startChanneling
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &1879409822683755388
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8395581352987850147}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5758ca93461aeeb4589456a052b07d74, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _showDebugFields: 0
+  _enableGizmoDebugging: 1
+  _debugColor: {r: 0, g: 1, b: 1, a: 1}
+  _previouslyRegisteredEvent: {fileID: 11400000, guid: 6bae8c3ce32e3d04c966d1475cc49b0c, type: 2}
+  _event: {fileID: 11400000, guid: 6bae8c3ce32e3d04c966d1475cc49b0c, type: 2}
+  _response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 614270340}
+        m_TargetAssemblyTypeName: HumanManager, Assembly-CSharp
+        m_MethodName: e_channelTriggered
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &614270342
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8395581352987850147}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5758ca93461aeeb4589456a052b07d74, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _showDebugFields: 0
+  _enableGizmoDebugging: 1
+  _debugColor: {r: 0, g: 1, b: 1, a: 1}
+  _previouslyRegisteredEvent: {fileID: 0}
+  _event: {fileID: 11400000, guid: d7a5c46526a158846b58a0b1e1c33501, type: 2}
+  _response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 614270340}
+        m_TargetAssemblyTypeName: HumanManager, Assembly-CSharp
+        m_MethodName: SeverConnection
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

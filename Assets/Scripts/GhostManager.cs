@@ -13,6 +13,8 @@ public class GhostManager : PlayerManager
     private GameEvent severConnectionEvent;
     [SerializeField]
     private GameObject player;
+    [SerializeField]
+    private BoolReference isChanneling;
 
     private List<GameObject> chainedEnemies = new List<GameObject>();
     private bool isWaiting;
@@ -92,6 +94,7 @@ public class GhostManager : PlayerManager
         player.GetComponent<PlayerManager>().enableMovement();
         enableMovement();
         gameObject.SetActive(false);
+        isChanneling.Value = false;
     }
 
     private IEnumerator SeverConnection()

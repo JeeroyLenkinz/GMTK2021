@@ -53,6 +53,11 @@ MonoBehaviour:
   spawnCircleRadius: 10
   enemyPrefab: {fileID: 2753194330981907370, guid: 389d7ef6544b0754db6b8d65b8df675f, type: 3}
   playerObj: {fileID: 0}
+  score:
+    _useConstant: 0
+    _constantValue: 0
+    _variable: {fileID: 11400000, guid: 9c696486ef3ad0e43ba598377f2cb9db, type: 2}
+  scoreIncrementAmount: 1
 --- !u!114 &1565109039
 MonoBehaviour:
   m_ObjectHideFlags: 0

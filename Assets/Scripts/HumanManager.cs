@@ -11,6 +11,12 @@ public class HumanManager : PlayerManager
     private GameObject ghost;
     [SerializeField]
     private GameEvent enemyDestroyedEvent;
+    [SerializeField]
+    private BoolReference isChanneling;
+    [SerializeField]
+    private GameEvent startChanneling;
+    [SerializeField]
+    private GameEvent stopChanneling;
 
     public float moveToGhostSpeed;
 
@@ -24,8 +30,17 @@ public class HumanManager : PlayerManager
         pChain = GetComponent<PlayerChain>();
     }
 
+    public void e_channelTriggered() {
+        if (isChanneling.Value) {
+            stopChanneling.Raise();
+        } else {
+            startChanneling.Raise();
+        }
+    }
+
     public void e_startChanneling() {
         if (!getIsDashing() && !isSevered) {
+            isChanneling.Value = true;
             disableMovement();
             ghost.transform.position = gameObject.transform.position;
             ghost.SetActive(true);

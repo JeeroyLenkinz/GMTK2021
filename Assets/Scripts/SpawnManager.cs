@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using ScriptableObjectArchitecture;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Pathfinding;
@@ -19,12 +20,16 @@ public class SpawnManager : MonoBehaviour
     private GameObject enemyPrefab;
     [SerializeField]
     private GameObject playerObj;
+    [SerializeField]
+    private IntReference score;
+    public int scoreIncrementAmount;
     
     // Start is called before the first frame update
     void Awake()
     {
         spawnMultiplier = 1;
         timeUntilSpawn = minSpawnCooldown;
+        score.Value = 0;
     }
 
     // Update is called once per frame
@@ -55,5 +60,6 @@ public class SpawnManager : MonoBehaviour
 
     public void e_EnemyDestroyed() {
         currentActiveEnemies--;
+        score.Value += scoreIncrementAmount;
     }
 }

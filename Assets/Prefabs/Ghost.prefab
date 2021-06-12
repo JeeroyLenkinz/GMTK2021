@@ -173,7 +173,12 @@ MonoBehaviour:
     _constantValue: 0
     _variable: {fileID: 11400000, guid: 5d0f62423cd1de14ea56d35034bea8d4, type: 2}
   enemyHit: {fileID: 11400000, guid: 0b6d59c81647067428c1de8a2174251e, type: 2}
+  severConnectionEvent: {fileID: 11400000, guid: d7a5c46526a158846b58a0b1e1c33501, type: 2}
   player: {fileID: 0}
+  isChanneling:
+    _useConstant: 0
+    _constantValue: 0
+    _variable: {fileID: 11400000, guid: e9683339dbdde9f44ba5d357829346d9, type: 2}
   healthDecayMod: 2
 --- !u!114 &165431010
 MonoBehaviour:
