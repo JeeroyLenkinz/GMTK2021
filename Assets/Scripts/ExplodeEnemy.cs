@@ -14,7 +14,7 @@ public class ExplodeEnemy : MonoBehaviour
     {
         foreach (Transform child in gameObject.transform)
         {
-            child.gameObject.GetComponent<Rigidbody2D>().AddExplosionForce(explosionStrength, origin, 1);
+            child.gameObject.GetComponent<Rigidbody2D>().AddExplosionForce(explosionStrength, origin, 100);
             //child.GetComponent<Collider2D>().isTrigger = true;
         }
     }
