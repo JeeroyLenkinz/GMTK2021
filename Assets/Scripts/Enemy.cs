@@ -57,6 +57,7 @@ public class Enemy : MonoBehaviour
 
     public void AttachNext(GameObject nextObj)
     {
+        lineRenderer.enabled = true;
         isChained = true;
         nextAttached = nextObj;
     }

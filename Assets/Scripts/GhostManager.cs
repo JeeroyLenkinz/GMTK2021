@@ -104,6 +104,7 @@ public class GhostManager : PlayerManager
     {
         disableMovement();
         severConnectionEvent.Raise();         // Will move Camera to Player - Have lines fade
+        chainedEnemies.Clear();
         yield return new WaitForSeconds(0.25f);
         // Do FX stuff here
         player.GetComponent<PlayerManager>().enableMovement();
