@@ -38,7 +38,7 @@ public class HumanManager : PlayerManager
 
     public void e_channelTriggered() {
         if (isChanneling.Value) {
-            stopChanneling.Raise();
+            stopChanneling.Raise(); // Camera and FX manager hears this, and will trigger an FX done event to do the actual mechanix
         } else {
             startChanneling.Raise();
         }

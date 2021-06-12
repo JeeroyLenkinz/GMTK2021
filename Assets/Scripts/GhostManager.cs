@@ -12,6 +12,8 @@ public class GhostManager : PlayerManager
     [SerializeField]
     private GameEvent severConnectionEvent;
     [SerializeField]
+    private GameEvent ghostReachedEvent;
+    [SerializeField]
     private GameObject player;
     [SerializeField]
     private BoolReference isChanneling;
@@ -93,6 +95,7 @@ public class GhostManager : PlayerManager
         {
             yield return null;
         }
+        ghostReachedEvent.Raise();
         chainedEnemies.Clear();
         player.GetComponent<PlayerManager>().enableMovement();
         enableMovement();
