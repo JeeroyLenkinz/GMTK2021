@@ -98,6 +98,10 @@ public class GhostManager : PlayerManager
         {
             yield return null;
         }
+        foreach (GameObject killedEnemy in chainedEnemies)
+        {
+            Destroy(killedEnemy);
+        }
         ghostReachedEvent.Raise();
         chainedEnemies.Clear();
         player.GetComponent<PlayerManager>().enableMovement();
@@ -105,12 +109,13 @@ public class GhostManager : PlayerManager
         gameObject.SetActive(false);
         isChanneling.Value = false;
         isMovingToGhost.Value = false;
+
+
     }
 
     public void StartSever() {
         isSevered.Value = true;
         isChanneling.Value = false;
-        chainedEnemies.Clear();
         StartCoroutine(SeverConnection());
     }
     private IEnumerator SeverConnection()

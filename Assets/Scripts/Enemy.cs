@@ -106,7 +106,8 @@ public class Enemy : MonoBehaviour
     {
         GameObject explosion = Instantiate(explodedEnemyPrefab, transform.position, Quaternion.identity);
         explosion.GetComponent<ExplodeEnemy>().ExplodeMe(explosionOrigin);
-        Destroy(this.gameObject);
+        //Destroy(this.gameObject);
+        this.gameObject.SetActive(false);
     }
 
     public void AttachNext(GameObject nextObj)

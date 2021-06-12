@@ -999,6 +999,22 @@ PrefabInstance:
       propertyPath: ghost
       value: 
       objectReference: {fileID: 165431008}
+    - target: {fileID: 3006413473010556806, guid: f601e37b6fa12b24aa8dd9e66c1227dc, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3643363736057197414, guid: f601e37b6fa12b24aa8dd9e66c1227dc, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3643363736057197414, guid: f601e37b6fa12b24aa8dd9e66c1227dc, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3643363736057197414, guid: f601e37b6fa12b24aa8dd9e66c1227dc, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3871319337761648029, guid: f601e37b6fa12b24aa8dd9e66c1227dc, type: 3}
       propertyPath: ghost
       value: 

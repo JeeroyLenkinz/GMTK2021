@@ -141,13 +141,16 @@ public class HumanManager : PlayerManager
     }
 
     public void e_getHit() {
-        if (isChanneling.Value) {
-            // Initiate sever
-            severConnectionEvent.Raise();
-            ghost.GetComponent<GhostManager>().StartSever();
-        } else {
-            // Die
-            gameOverEvent.Raise();
+        if (!isMovingToGhost.Value) 
+        {
+            if (isChanneling.Value) {
+                // Initiate sever
+                severConnectionEvent.Raise();
+                ghost.GetComponent<GhostManager>().StartSever();
+            } else {
+                // Die
+                gameOverEvent.Raise();
+            }
         }
     }
 }
