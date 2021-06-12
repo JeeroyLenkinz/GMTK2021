@@ -59,7 +59,7 @@ public class GhostManager : PlayerManager
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.tag == "Enemy")
+        if(collision.tag == "Enemy" && !isSevered.Value)
         {
             GameObject enemy = collision.gameObject;
             Enemy enemyLogic = enemy.GetComponent<Enemy>();
