@@ -65,7 +65,7 @@ public class HumanManager : PlayerManager
 
     public void MoveToGhost(List<GameObject> chainedEnemies)
     {
-        GetComponent<PolygonCollider2D>().enabled = false;
+        GetComponent<CapsuleCollider2D>().enabled = false;
         StartCoroutine(MoveToGhostCoroutine(chainedEnemies));
     }
 
@@ -169,7 +169,7 @@ public class HumanManager : PlayerManager
     private void EndOfDash()
     {
         GetComponent<LineRenderer>().enabled = false;
-        GetComponent<PolygonCollider2D>().enabled = true;
+        GetComponent<CapsuleCollider2D>().enabled = true;
         ghost.GetComponent<GhostManager>().StopWaiting();
     }
 
