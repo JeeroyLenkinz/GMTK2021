@@ -43,6 +43,24 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: Background
+    uniqueID: 1182030393
+    locked: 0
   - name: Line
     uniqueID: 1989168581
+    locked: 0
+  - name: VFXBehind
+    uniqueID: 3324853955
+    locked: 0
+  - name: Player
+    uniqueID: 2504359289
+    locked: 0
+  - name: Enemy
+    uniqueID: 2883797033
+    locked: 0
+  - name: Ghost
+    uniqueID: 3878632603
+    locked: 0
+  - name: VFXInfront
+    uniqueID: 3963907069
     locked: 0

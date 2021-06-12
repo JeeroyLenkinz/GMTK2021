@@ -29,13 +29,13 @@ public class FXManager : MonoBehaviour
 
     public void e_Heard_Ghost_Reached()
     {
-        float effectDur = 0.2f;
+        float effectDur = 0.3f;
         cam.gameObject.GetComponent<CameraFollow>().GhostReached(effectDur);
     }
 
     private IEnumerator MoveToGhostVFX()
     {
-        float effectDur = 0.5f;        // How long the cumulative effect is
+        float effectDur = 0.65f;        // How long the cumulative effect is
         cam.gameObject.GetComponent<CameraFollow>().Stop_Channel(effectDur);
         yield return new WaitForSeconds(effectDur);
         moveToGhostFXDone.Raise();

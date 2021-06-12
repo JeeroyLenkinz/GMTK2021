@@ -136,7 +136,7 @@ MonoBehaviour:
   maxZoom: 10
   zoomLimiter: 20
   severedMultiplier: 1.2
-  movingToGhostZoom: 2.5
+  movingToGhostZoom: 3.5
   player: {fileID: 0}
   ghost: {fileID: 0}
 --- !u!114 &1794871147
