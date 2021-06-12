@@ -21,11 +21,17 @@ public class HumanManager : PlayerManager
     public float moveToGhostSpeed;
 
     private PlayerChain pChain;
-    private bool isSevered;
+    [SerializeField]
+    private BoolReference isSevered;
 
+    private new void Awake() {
+        base.Awake();
+        isChanneling.Value = false;
+    }
+    
     void Start()
     {
-        isSevered = false;
+        isSevered.Value = false;
         ghost.SetActive(false);
         pChain = GetComponent<PlayerChain>();
     }
@@ -39,11 +45,13 @@ public class HumanManager : PlayerManager
     }
 
     public void e_startChanneling() {
-        if (!getIsDashing() && !isSevered) {
+        if (!getIsDashing() && !isSevered.Value) {
+            Debug.Log("Start channeling!");
             isChanneling.Value = true;
             disableMovement();
             ghost.transform.position = gameObject.transform.position;
             ghost.SetActive(true);
+            ghost.GetComponent<GhostManager>().enableMovement();
             GetComponent<PlayerChain>().OnSummon();
         }
     }
@@ -54,17 +62,21 @@ public class HumanManager : PlayerManager
         StartCoroutine(MoveToGhostCoroutine(chainedEnemies));
     }
 
-    public void SeverConnection()
+    public void e_SeverConnection()
     {
-        isSevered = true;
         StartCoroutine(SeverConnectionCoroutine());
     }
 
     private IEnumerator SeverConnectionCoroutine()
     {
         pChain.Detach();
-        Debug.Log("Hii");
+        // Debug.Log("Hii");
         yield return null;
+    }
+
+    private void reconnectToGhost() {
+        isSevered.Value = false;
+        ghost.SetActive(false);
     }
 
     private IEnumerator MoveToGhostCoroutine(List<GameObject> chainedEnemies)
@@ -113,5 +125,11 @@ public class HumanManager : PlayerManager
         GetComponent<LineRenderer>().enabled = false;
         GetComponent<CircleCollider2D>().enabled = true;
         ghost.GetComponent<GhostManager>().StopWaiting();
+    }
+
+    void OnTriggerEnter2D(Collider2D other) {
+        if (other.gameObject.tag == "Ghost" && isSevered.Value) {
+            reconnectToGhost();
+        }
     }
 }

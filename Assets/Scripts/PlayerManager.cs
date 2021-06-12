@@ -85,10 +85,8 @@ public class PlayerManager : MonoBehaviour
     }
 
     public void disableMovement() {
-        Debug.Log("Set to unmovable!");
         rb.velocity = Vector2.zero;
         state = State.Unmovable;
-        Debug.Log("Value of state is: " + state);
     }
 
     public void enableMovement() {

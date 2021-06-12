@@ -18,7 +18,8 @@ public class GhostManager : PlayerManager
 
     private List<GameObject> chainedEnemies = new List<GameObject>();
     private bool isWaiting;
-    private bool isSevered;
+    [SerializeField]
+    private BoolReference isSevered;
 
     public float healthDecayMod;
 
@@ -26,7 +27,7 @@ public class GhostManager : PlayerManager
     {
         base.Awake();
         isWaiting = false;
-        isSevered = false;
+        isSevered.Value = false;
         chainedEnemies.Clear();
 
     }
@@ -41,15 +42,17 @@ public class GhostManager : PlayerManager
         base.Update();
         channelHealthSO.Value -= Time.deltaTime*healthDecayMod;
         channelHealthSO.Value = Mathf.Clamp(channelHealthSO.Value, 0, 100);
-        if(channelHealthSO.Value == 0 && !isSevered)
+        if(channelHealthSO.Value == 0 && !isSevered.Value)
         {
-            isSevered = true;
+            isSevered.Value = true;
+            isChanneling.Value = false;
+            chainedEnemies.Clear();
             StartCoroutine(SeverConnection());
         }
     }
 
     public void e_StopChanneling() {
-        if (!getIsDashing() && !isSevered) {
+        if (!getIsDashing() && !isSevered.Value) {
             StartCoroutine(StopChannelCoroutine());
         }
     }
@@ -99,7 +102,6 @@ public class GhostManager : PlayerManager
 
     private IEnumerator SeverConnection()
     {
-        isSevered = true;
         disableMovement();
         severConnectionEvent.Raise();         // Will move Camera to Player - Have lines fade
         yield return new WaitForSeconds(0.25f);

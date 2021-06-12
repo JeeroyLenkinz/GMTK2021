@@ -282,6 +282,10 @@ MonoBehaviour:
   startChanneling: {fileID: 11400000, guid: 24ebdd2b2bbb74f458fb35836365ca4e, type: 2}
   stopChanneling: {fileID: 11400000, guid: 2db3af13f0e66ef4fa7eef5cfae85118, type: 2}
   moveToGhostSpeed: 20
+  isSevered:
+    _useConstant: 0
+    _constantValue: 0
+    _variable: {fileID: 11400000, guid: 836c73b6be9b85e48a798c2b5ea213b8, type: 2}
 --- !u!114 &614270341
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -368,7 +372,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 614270340}
         m_TargetAssemblyTypeName: HumanManager, Assembly-CSharp
-        m_MethodName: SeverConnection
+        m_MethodName: e_SeverConnection
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

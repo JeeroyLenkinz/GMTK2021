@@ -55,6 +55,7 @@ public class PlayerChain : MonoBehaviour
 
     public void OnSummon()
     {
+        nextAttached = ghost;
         lineRenderer.enabled = true;
     }
 }
