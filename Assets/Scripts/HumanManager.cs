@@ -78,6 +78,7 @@ public class HumanManager : PlayerManager
     private void EndOfDash()
     {
         GetComponent<LineRenderer>().enabled = false;
+        GetComponent<CircleCollider2D>().enabled = true;
         ghost.GetComponent<GhostManager>().StopWaiting();
     }
 }
