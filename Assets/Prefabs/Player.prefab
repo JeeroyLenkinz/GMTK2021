@@ -272,6 +272,7 @@ MonoBehaviour:
     m_Bits: 256
   teleportAmount: 2
   ghost: {fileID: 0}
+  moveToGhostSpeed: 20
 --- !u!114 &614270341
 MonoBehaviour:
   m_ObjectHideFlags: 0
