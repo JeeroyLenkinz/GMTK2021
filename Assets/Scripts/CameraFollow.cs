@@ -126,23 +126,37 @@ public class CameraFollow : MonoBehaviour
                 cam.DOOrthoSize(movingToGhostZoom, moveToGhostDur).SetEase(Ease.InOutBack).SetEase(Ease.InOutBack);
                 StartCoroutine(WaitForZoomIn(moveToGhostDur));
             }
+
             return;
         }
         else if (status == Status.PlayerMode)
         {
-            //newZoom = minZoom;
+            newZoom = Mathf.Lerp(newZoom, minZoom, 1f);
 
-        } else
+        }
+        else if (status == Status.Severed)
+        {
+            newZoom = minZoom * severedMultiplier;
+
+        }
+        else
         {
             newZoom = Mathf.Lerp(minZoom, maxZoom, GetDistance() / zoomLimiter);
         }
 
-        if (newZoom < minZoom)
+        if (newZoom < minZoom && status != Status.Severed)
         {
             newZoom = minZoom;
         }
 
-        cam.orthographicSize = newZoom;
+        if(status == Status.GhostMode)
+        {
+            cam.orthographicSize = newZoom;
+        } else
+        {
+            cam.orthographicSize = Mathf.Lerp(cam.orthographicSize, newZoom, Time.deltaTime);
+        }
+
     }
 
 
@@ -162,7 +176,7 @@ public class CameraFollow : MonoBehaviour
 
     public void Severed()
     {
-        status = Status.PlayerMode;
+        status = Status.Severed;
         target = player.transform;
     }
 
@@ -172,6 +186,10 @@ public class CameraFollow : MonoBehaviour
         StartCoroutine(GhostReachedCoroutine(duration));
     }
 
-
+    public void Reattach()
+    {
+        status = Status.PlayerMode;
+        target = player.transform;
+    }
 
 }

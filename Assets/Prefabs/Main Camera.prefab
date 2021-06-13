@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: 1794871147}
   - component: {fileID: 1794871149}
   - component: {fileID: 6999819925220377442}
+  - component: {fileID: 728171811}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -133,11 +134,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   smoothSpeed: 10
-  offset: {x: 0, y: 0, z: -10}
+  offset: {x: 0, y: 0.75, z: -10}
   minZoom: 5
   maxZoom: 10
   zoomLimiter: 20
-  severedMultiplier: 1.2
+  severedMultiplier: 0.8
   movingToGhostZoom: 3.5
   player: {fileID: 0}
   ghost: {fileID: 0}
@@ -301,3 +302,35 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &728171811
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6999819925516426233}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5758ca93461aeeb4589456a052b07d74, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _showDebugFields: 0
+  _enableGizmoDebugging: 1
+  _debugColor: {r: 0, g: 1, b: 1, a: 1}
+  _previouslyRegisteredEvent: {fileID: 11400000, guid: 5365afef203157b48998442d5e48e1a7, type: 2}
+  _event: {fileID: 11400000, guid: 5365afef203157b48998442d5e48e1a7, type: 2}
+  _response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1920993348}
+        m_TargetAssemblyTypeName: CameraFollow, Assembly-CSharp
+        m_MethodName: Reattach
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2

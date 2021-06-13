@@ -122,11 +122,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   smoothSpeed: 10
-  offset: {x: 0, y: 0, z: -10}
+  offset: {x: 0, y: 0.75, z: -10}
   minZoom: 5
   maxZoom: 10
   zoomLimiter: 20
-  severedMultiplier: 1.2
+  severedMultiplier: 0.8
   movingToGhostZoom: 3.5
   player: {fileID: 0}
   ghost: {fileID: 0}

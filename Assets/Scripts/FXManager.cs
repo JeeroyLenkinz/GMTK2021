@@ -111,6 +111,7 @@ public class FXManager : MonoBehaviour
 
     public void e_Heard_Sever_Start()
     {
+        isReattaching = false;
         summonTimer = 0f;
         severTimer = 0f;
         if(effectState == EffectState.Summoned)
@@ -124,8 +125,10 @@ public class FXManager : MonoBehaviour
 
     public void e_Heard_Reattach_Start()
     {
+
         severTimer = 0f;
-        isSevering = true;
+        isReattaching = true;
+        isSevering = false;
         effectState = EffectState.Normal;
     }
 
@@ -159,7 +162,7 @@ public class FXManager : MonoBehaviour
             vigIntensity = Mathf.Lerp(vigIntensity, defaultVigIntensity, 0.01f);
             if (effectState == EffectState.Severed)
             {
-                sat = Mathf.Lerp(sat, SeverSat, 0.05f);
+                sat = Mathf.Lerp(sat, SeverSat, 2f);
             }
             else
             {
@@ -196,7 +199,9 @@ public class FXManager : MonoBehaviour
         {
             severTimer += Time.deltaTime;
             chromaticAbIntensity = Mathf.Lerp(chromaticAbIntensity, 0f, 0.05f);
+            sat = Mathf.Lerp(sat, defaultSaturation, 1f);
             chromaticAbb.intensity.Override(chromaticAbIntensity);
+            colorAdjust.saturation.Override(sat);
         }
         else
         {
