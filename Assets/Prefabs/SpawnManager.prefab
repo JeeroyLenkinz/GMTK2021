@@ -62,7 +62,6 @@ MonoBehaviour:
     _variable: {fileID: 11400000, guid: 9c696486ef3ad0e43ba598377f2cb9db, type: 2}
   scoreIncrementAmount: 1
   enemiesPerWave: 0a0000000f00000014000000
-  killEnemySFX: {fileID: 8300000, guid: ade126c2705f84808afba2e527fcbfb9, type: 3}
   waveNumberEvent: {fileID: 11400000, guid: 5d17786559e60ac43acb61784781e6ea, type: 2}
   startEvent: {fileID: 11400000, guid: 5dbc8acbc0975d54bbf07b204a3e0f9e, type: 2}
 --- !u!114 &1565109039
@@ -107,7 +106,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: ade126c2705f84808afba2e527fcbfb9, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1

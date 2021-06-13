@@ -39,6 +39,8 @@ public class PlayerManager : MonoBehaviour
     public AudioSource audioSource;
     [SerializeField]
     private AudioClip dashSFX;
+    [SerializeField]
+    private float dashSFXVolume;
     [HideInInspector]
     public Vector3 lastMoveDir;
 
@@ -65,6 +67,7 @@ public class PlayerManager : MonoBehaviour
                     currentDashSpeed = maxDashSpeed;
                     state = State.Dashing;
                     audioSource.clip = dashSFX;
+                    audioSource.volume = dashSFXVolume;
                     audioSource.Play();
                 }
                 break;

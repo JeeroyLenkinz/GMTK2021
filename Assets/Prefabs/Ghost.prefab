@@ -468,7 +468,14 @@ MonoBehaviour:
   teleportAmount: 2
   audioSource: {fileID: 0}
   dashSFX: {fileID: 8300000, guid: 5a3d322ad96ac3949bcfe2e47e239a66, type: 3}
+  dashSFXVolume: 1
   lastMoveDir: {x: 0, y: 0, z: 0}
+  startChannelSFX: {fileID: 8300000, guid: 7ddf9b087f5eebf40947747d9bc39484, type: 3}
+  startChannelSFXVolume: 1
+  endChannelSFX: {fileID: 8300000, guid: 717903304e7f6044facae66d9f857f53, type: 3}
+  endChannelSFXVolume: 1
+  severConnectionSFX: {fileID: 8300000, guid: 67051921f074a4889bbef5d5300741c4, type: 3}
+  severConnectionSFXVolume: 1
   channelHealthSO:
     _useConstant: 0
     _constantValue: 0
@@ -491,9 +498,6 @@ MonoBehaviour:
     _variable: {fileID: 11400000, guid: e28a30906b13179448baaa8a7781d491, type: 2}
   markEnemyAudioSource: {fileID: 71560333}
   healthDecayMod: 25
-  startChannelSFX: {fileID: 8300000, guid: 7ddf9b087f5eebf40947747d9bc39484, type: 3}
-  endChannelSFX: {fileID: 8300000, guid: 717903304e7f6044facae66d9f857f53, type: 3}
-  severConnectionSFX: {fileID: 8300000, guid: 67051921f074a4889bbef5d5300741c4, type: 3}
 --- !u!114 &165431010
 MonoBehaviour:
   m_ObjectHideFlags: 0

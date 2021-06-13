@@ -876,7 +876,12 @@ MonoBehaviour:
   teleportAmount: 2
   audioSource: {fileID: 0}
   dashSFX: {fileID: 8300000, guid: 5a3d322ad96ac3949bcfe2e47e239a66, type: 3}
+  dashSFXVolume: 1
   lastMoveDir: {x: 0, y: 0, z: 0}
+  dieSFX: {fileID: 8300000, guid: 4fd081270c7c64ef1b6d4c483f985394, type: 3}
+  dieSFXVolume: 1
+  reconnectToGhostSFX: {fileID: 8300000, guid: 3525953eac89b4e3794e67db40eca59e, type: 3}
+  reconnectToGhostSFXVolume: 1
   ghost: {fileID: 0}
   enemyDestroyedEvent: {fileID: 11400000, guid: 93ef3f6226478b5478e1391184864caf, type: 2}
   isChanneling:
@@ -897,8 +902,6 @@ MonoBehaviour:
     _variable: {fileID: 11400000, guid: e28a30906b13179448baaa8a7781d491, type: 2}
   gameOverEvent: {fileID: 11400000, guid: ff4597689aadcd94eb20da621ef398bd, type: 2}
   severConnectionEvent: {fileID: 11400000, guid: d7a5c46526a158846b58a0b1e1c33501, type: 2}
-  dieSFX: {fileID: 8300000, guid: 4fd081270c7c64ef1b6d4c483f985394, type: 3}
-  reconnectToGhostSFX: {fileID: 8300000, guid: 3525953eac89b4e3794e67db40eca59e, type: 3}
 --- !u!114 &614270341
 MonoBehaviour:
   m_ObjectHideFlags: 0

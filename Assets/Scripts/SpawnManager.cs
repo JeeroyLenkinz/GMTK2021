@@ -34,7 +34,6 @@ public class SpawnManager : MonoBehaviour
     private List<int> enemiesPerWave = new List<int>();
     private bool isWaitingForWaveStart;
     private AudioSource audioSource;
-    public AudioClip killEnemySFX;
     [SerializeField]
     private IntGameEvent waveNumberEvent;
     private bool startOfGame;
@@ -117,7 +116,6 @@ public class SpawnManager : MonoBehaviour
     public void e_EnemyDestroyed() {
         currentActiveEnemies--;
         score.Value += scoreIncrementAmount;
-        audioSource.clip = killEnemySFX;
         audioSource.Play();
     }
 

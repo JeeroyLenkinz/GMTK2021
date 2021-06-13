@@ -6,6 +6,12 @@ using UnityEngine.Experimental.Rendering.Universal;
 
 public class GhostManager : PlayerManager
 {
+    public AudioClip startChannelSFX;
+    public float startChannelSFXVolume;
+    public AudioClip endChannelSFX;
+    public float endChannelSFXVolume;
+    public AudioClip severConnectionSFX;
+    public float severConnectionSFXVolume;
     [SerializeField]
     private FloatReference channelHealthSO;
     [SerializeField]
@@ -29,9 +35,6 @@ public class GhostManager : PlayerManager
     private AudioSource markEnemyAudioSource;
 
     public float healthDecayMod;
-    public AudioClip startChannelSFX;
-    public AudioClip endChannelSFX;
-    public AudioClip severConnectionSFX;
 
     private new void Awake()
     {
@@ -47,6 +50,7 @@ public class GhostManager : PlayerManager
     {
         channelHealthSO.Value = 100;
         audioSource.clip = startChannelSFX;
+        audioSource.volume = startChannelSFXVolume;
         audioSource.Play();
     }
 
@@ -108,6 +112,7 @@ public class GhostManager : PlayerManager
         isWaiting = true;
         disableMovement();
         audioSource.clip = endChannelSFX;
+        audioSource.volume = endChannelSFXVolume;
         audioSource.Play();
         player.GetComponent<HumanManager>().MoveToGhost(chainedEnemies);
         while (isWaiting)       // Waiting for the movement to end
@@ -133,6 +138,7 @@ public class GhostManager : PlayerManager
         isSevered.Value = true;
         isChanneling.Value = false;
         audioSource.clip = severConnectionSFX;
+        audioSource.volume = severConnectionSFXVolume;
         audioSource.Play();
         StartCoroutine(SeverConnection());
     }

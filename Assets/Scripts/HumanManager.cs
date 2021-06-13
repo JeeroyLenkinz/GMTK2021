@@ -7,6 +7,10 @@ using System.Runtime.CompilerServices;
 
 public class HumanManager : PlayerManager
 {
+    public AudioClip dieSFX;
+    public float dieSFXVolume;
+    public AudioClip reconnectToGhostSFX;
+    public float reconnectToGhostSFXVolume;
     [SerializeField]
     private GameObject ghost;
     [SerializeField]
@@ -30,9 +34,6 @@ public class HumanManager : PlayerManager
     private GameEvent gameOverEvent;
     [SerializeField]
     private GameEvent severConnectionEvent;
-    public AudioClip dieSFX;
-    public AudioClip reconnectToGhostSFX;
-
     private bool isDead;
     
     void Start()
@@ -91,6 +92,7 @@ public class HumanManager : PlayerManager
         isSevered.Value = false;
         ghost.SetActive(false);
         audioSource.clip = reconnectToGhostSFX;
+        audioSource.volume = reconnectToGhostSFXVolume;
         audioSource.Play();
     }
 
@@ -201,6 +203,7 @@ public class HumanManager : PlayerManager
                 gameOverEvent.Raise();
                 disableMovement();
                 audioSource.clip = dieSFX;
+                audioSource.volume = dieSFXVolume;
                 audioSource.Play();
             }
         }
