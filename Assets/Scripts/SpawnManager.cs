@@ -13,7 +13,8 @@ public class SpawnManager : MonoBehaviour
     // public int maxAllowableEnemies;
     public float minSpawnCooldownSeconds;
     public float maxSpawnCooldownSeconds;
-    public float waveCooldownSeconds;
+    public float waveCooldownSeconds1;
+    public float waveCooldownSeconds2;
     public float minEnemySpeed;
     public float maxEnemySpeed;
     public float spawnCircleRadius;
@@ -36,6 +37,7 @@ public class SpawnManager : MonoBehaviour
     public AudioClip killEnemySFX;
     [SerializeField]
     private IntGameEvent waveNumberEvent;
+    private bool startOfGame;
     
     // Start is called before the first frame update
     void Awake()
@@ -45,9 +47,14 @@ public class SpawnManager : MonoBehaviour
         score.Value = 0;
         currentWave = 0;
         hasWon = false;
-        isWaitingForWaveStart = false;
+        isWaitingForWaveStart = true;
         enemiesSpawnedThisWave = 0;
         audioSource = GetComponent<AudioSource>();
+        startOfGame = true;
+    }
+
+    void Start() {
+        StartCoroutine(waitBeforeNextWave());
     }
 
     // Update is called once per frame
@@ -60,11 +67,8 @@ public class SpawnManager : MonoBehaviour
         }
 
         if (enemiesSpawnedThisWave >= enemiesPerWave[currentWave] && currentActiveEnemies <= 0 && !isWaitingForWaveStart) {
-            StartCoroutine(waitBeforeNextWave());
             if (currentWave < (enemiesPerWave.Count - 1)) {
-                currentWave++;
-                enemiesSpawnedThisWave = 0;
-                waveNumberEvent.Raise(currentWave+1);
+                StartCoroutine(waitBeforeNextWave());
             } else {
                 if (!hasWon) {
                     hasWon = true;
@@ -93,8 +97,16 @@ public class SpawnManager : MonoBehaviour
 
     private IEnumerator waitBeforeNextWave() {
         isWaitingForWaveStart = true;
-        yield return new WaitForSeconds(waveCooldownSeconds);
+        yield return new WaitForSeconds(waveCooldownSeconds1);
+        if (!startOfGame) {
+            currentWave++;
+        }
+        enemiesSpawnedThisWave = 0;
+        waveNumberEvent.Raise(currentWave+1);
+        Debug.Log("Wave #" + currentWave+1);
+        yield return new WaitForSeconds(waveCooldownSeconds2);
         isWaitingForWaveStart = false;
+        startOfGame = false;
     }
 
     public void e_EnemyDestroyed() {

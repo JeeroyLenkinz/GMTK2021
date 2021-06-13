@@ -18,7 +18,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &2301391236564440417
 Transform:
   m_ObjectHideFlags: 0
@@ -48,7 +48,8 @@ MonoBehaviour:
   spawnMultiplier: 1
   minSpawnCooldownSeconds: 0.3
   maxSpawnCooldownSeconds: 1
-  waveCooldownSeconds: 5
+  waveCooldownSeconds1: 2
+  waveCooldownSeconds2: 4
   minEnemySpeed: 0.5
   maxEnemySpeed: 2.5
   spawnCircleRadius: 15
