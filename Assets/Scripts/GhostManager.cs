@@ -125,7 +125,7 @@ public class GhostManager : PlayerManager
         foreach (GameObject killedEnemy in chainedEnemies)
         {
             Destroy(killedEnemy);
-            enemyDestroyedEvent.Raise();
+            // enemyDestroyedEvent.Raise();
         }
         ghostReachedEvent.Raise();
         chainedEnemies.Clear();
