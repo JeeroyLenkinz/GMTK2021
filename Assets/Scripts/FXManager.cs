@@ -75,6 +75,7 @@ public class FXManager : MonoBehaviour
 
     public void e_Heard_Summon_Start()
     {
+        summonTimer = 0f;
         isSummoning = true;
     }
 
