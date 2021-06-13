@@ -1110,6 +1110,8 @@ MonoBehaviour:
   dieSFXVolume: 1.1
   reconnectToGhostSFX: {fileID: 8300000, guid: 3525953eac89b4e3794e67db40eca59e, type: 3}
   reconnectToGhostSFXVolume: 2.5
+  hurtSFX: {fileID: 8300000, guid: a5d45c0b0bd62564c87f80efa94dd41a, type: 3}
+  hurtSFXVolume: 2.5
   ghost: {fileID: 0}
   enemyDestroyedEvent: {fileID: 11400000, guid: 93ef3f6226478b5478e1391184864caf, type: 2}
   isChanneling:

@@ -11,6 +11,8 @@ public class HumanManager : PlayerManager
     public float dieSFXVolume;
     public AudioClip reconnectToGhostSFX;
     public float reconnectToGhostSFXVolume;
+    public AudioClip hurtSFX;
+    public float hurtSFXVolume;
     [SerializeField]
     private GameObject ghost;
     [SerializeField]
@@ -233,6 +235,9 @@ public class HumanManager : PlayerManager
                     audioSource.volume = dieSFXVolume;
                     audioSource.Play();
                 } else {
+                    audioSource.clip = hurtSFX;
+                    audioSource.volume = hurtSFXVolume;
+                    audioSource.Play();
                     StartCoroutine(setInvincible());
                 }
 
