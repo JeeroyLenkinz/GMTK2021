@@ -19,6 +19,6 @@ public class ExplodeEnemy : MonoBehaviour
             //child.GetComponent<Collider2D>().isTrigger = true;
         }
         */
-        Destroy(this, 4f);
+        Destroy(this.gameObject, 4f);
     }
 }
