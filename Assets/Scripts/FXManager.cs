@@ -96,6 +96,7 @@ public class FXManager : MonoBehaviour
         float effectDur = 0.3f;
         cam.gameObject.GetComponent<CameraFollow>().GhostReached(effectDur);
         overlaycam.gameObject.GetComponent<CameraFollow>().GhostReached(effectDur);
+        isSummoning = false;
         isDesummoning = true;
         summonTimer = 0f;
         effectState = EffectState.Normal;
@@ -136,14 +137,8 @@ public class FXManager : MonoBehaviour
         {
             summonTimer += Time.deltaTime;
             vigIntensity = Mathf.Lerp(vigIntensity, ghostVigIntensity, 0.01f);
-            if(effectState == EffectState.Severed)
-            {
-                sat = Mathf.Lerp(sat, SeverSat, 0.05f);
-            }
-            else
-            {
-                sat = Mathf.Lerp(sat, -100f, 0.05f);
-            }
+
+            sat = Mathf.Lerp(sat, -100f, 0.05f);
 
             vignette.intensity.Override(vigIntensity);
             colorAdjust.saturation.Override(sat);
@@ -158,22 +153,27 @@ public class FXManager : MonoBehaviour
 
     private void DeSummonStartFX()
     {
-
-
         if (summonTimer < summonEffectDur)
         {
             summonTimer += Time.deltaTime;
             vigIntensity = Mathf.Lerp(vigIntensity, defaultVigIntensity, 0.01f);
-            sat = Mathf.Lerp(sat, defaultSaturation, 1f);
+            if (effectState == EffectState.Severed)
+            {
+                sat = Mathf.Lerp(sat, SeverSat, 0.05f);
+            }
+            else
+            {
+                sat = Mathf.Lerp(sat, defaultSaturation, 1f);
+            }
             vignette.intensity.Override(vigIntensity);
             colorAdjust.saturation.Override(sat);
+
+
         }
         else
         {
             isDesummoning = false;
         }
-
-
     }
 
     private void SevereStartFX()
@@ -183,7 +183,6 @@ public class FXManager : MonoBehaviour
             severTimer += Time.deltaTime;
             chromaticAbIntensity = Mathf.Lerp(chromaticAbIntensity, SeverAbIntensity, 0.05f);
             chromaticAbb.intensity.Override(chromaticAbIntensity);
-            sat = Mathf.Lerp(sat, defaultSaturation, 1f);
         }
         else
         {
