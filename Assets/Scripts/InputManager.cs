@@ -35,5 +35,9 @@ public class InputManager : MonoBehaviour
         if (Input.GetButtonDown("Channel")) {
             channelTriggered.Raise();
         }
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            Application.Quit();
+        }
     }
 }
