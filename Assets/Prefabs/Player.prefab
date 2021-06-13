@@ -1134,6 +1134,11 @@ MonoBehaviour:
   ArtBigGO: {fileID: 3006413473010556806}
   trailGO: {fileID: 812438431}
   invincibilityDurationSeconds: 3
+  artAssets:
+  - {fileID: 1421256527743174155}
+  - {fileID: 2570418446106801260}
+  - {fileID: 4356615263223063935}
+  - {fileID: 1982595536315182566}
 --- !u!114 &614270341
 MonoBehaviour:
   m_ObjectHideFlags: 0

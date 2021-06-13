@@ -42,6 +42,8 @@ public class HumanManager : PlayerManager
     public GameObject trailGO;
     private bool isInvincible;
     public float invincibilityDurationSeconds;
+    [SerializeField]
+    private List<SpriteRenderer> artAssets = new List<SpriteRenderer>();
 
     void Start()
     {
@@ -228,7 +230,14 @@ public class HumanManager : PlayerManager
 
     private IEnumerator setInvincible() {
         isInvincible = true;
-        yield return new WaitForSeconds(invincibilityDurationSeconds);
+        foreach (SpriteRenderer sprite in artAssets) {
+            sprite.DOFade(0.3f, 0.75f);
+        }
+        yield return new WaitForSeconds(invincibilityDurationSeconds - 0.75f);
+        foreach (SpriteRenderer sprite in artAssets) {
+            sprite.DOFade(1f, 0.75f);
+        }
+        yield return new WaitForSeconds(0.75f);
         isInvincible = false;
     }
 }
