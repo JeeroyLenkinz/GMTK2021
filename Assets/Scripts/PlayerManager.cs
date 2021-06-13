@@ -142,6 +142,12 @@ public class PlayerManager : MonoBehaviour
                 rb.velocity = dashDir * currentDashSpeed;
                 break;
             case State.Unmovable:
+                if (isAlreadyWalking)
+                {
+                    isAlreadyWalking = false;
+                    animController.SetTrigger("StopWalk");
+                    Debug.Log("Stop Walk Cylce");
+                }
                 break;
         }
     }
