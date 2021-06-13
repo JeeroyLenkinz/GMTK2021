@@ -540,6 +540,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 685971709, guid: 389d7ef6544b0754db6b8d65b8df675f, type: 3}
+      propertyPath: uniqueID
+      value: 293030644086457290
+      objectReference: {fileID: 0}
     - target: {fileID: 1496608790, guid: 389d7ef6544b0754db6b8d65b8df675f, type: 3}
       propertyPath: pickNextWaypointDist
       value: 1.5

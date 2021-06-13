@@ -48,7 +48,7 @@ public class HumanManager : PlayerManager
             if (isChanneling.Value) {
                 isMovingToGhost.Value = true;
                 stopChanneling.Raise(); // Camera and FX manager hears this, and will trigger an FX done event to do the actual mechanix
-            } else {
+            } else if (!isSevered.Value) {
                 startChanneling.Raise();
             }
         }
