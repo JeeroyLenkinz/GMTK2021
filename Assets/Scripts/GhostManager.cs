@@ -24,9 +24,10 @@ public class GhostManager : PlayerManager
     private BoolReference isSevered;
     [SerializeField]
     private BoolReference isMovingToGhost;
+    [SerializeField]
+    private AudioSource markEnemyAudioSource;
 
     public float healthDecayMod;
-    public AudioClip markEnemySFX;
     public AudioClip startChannelSFX;
     public AudioClip endChannelSFX;
     public AudioClip severConnectionSFX;
@@ -90,8 +91,7 @@ public class GhostManager : PlayerManager
                 enemyHit.Raise(enemy);
             }
 
-            audioSource.clip = markEnemySFX;
-            audioSource.Play();
+            markEnemyAudioSource.Play();
             channelHealthSO.Value += 5;
 
         }
