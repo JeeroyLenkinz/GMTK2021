@@ -1085,7 +1085,7 @@ MonoBehaviour:
     _useConstant: 0
     _constantValue: 0
     _variable: {fileID: 11400000, guid: e83e3a225a55e4040b216d8bf63625ce, type: 2}
-  moveSpeed: 5
+  moveSpeed: 4
   maxDashSpeed: 15
   dashSpeedDropMultiplier: 3
   dashCooldown: 1.5

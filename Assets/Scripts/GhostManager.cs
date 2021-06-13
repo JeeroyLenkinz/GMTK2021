@@ -73,7 +73,7 @@ public class GhostManager : PlayerManager
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.tag == "Enemy" && !isSevered.Value)
+        if(collision.tag == "Enemy" && !isSevered.Value && !isMovingToGhost.Value)
         {
             GameObject enemy = collision.gameObject;
             Enemy enemyLogic = enemy.GetComponent<Enemy>();
@@ -130,8 +130,6 @@ public class GhostManager : PlayerManager
         gameObject.SetActive(false);
         isChanneling.Value = false;
         isMovingToGhost.Value = false;
-
-
     }
 
     public void StartSever() {

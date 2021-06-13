@@ -50,7 +50,7 @@ MonoBehaviour:
   maxSpawnCooldownSeconds: 1
   waveCooldownSeconds1: 2
   waveCooldownSeconds2: 4
-  minEnemySpeed: 0.5
+  minEnemySpeed: 1
   maxEnemySpeed: 2.5
   spawnCircleRadius: 15
   enemyPrefab: {fileID: 2753194330981907370, guid: 389d7ef6544b0754db6b8d65b8df675f, type: 3}
@@ -61,7 +61,7 @@ MonoBehaviour:
     _constantValue: 0
     _variable: {fileID: 11400000, guid: 9c696486ef3ad0e43ba598377f2cb9db, type: 2}
   scoreIncrementAmount: 1
-  enemiesPerWave: 0a0000000f00000014000000
+  enemiesPerWave: 0a0000000f00000014000000190000001e000000
   waveNumberEvent: {fileID: 11400000, guid: 5d17786559e60ac43acb61784781e6ea, type: 2}
   startEvent: {fileID: 11400000, guid: 5dbc8acbc0975d54bbf07b204a3e0f9e, type: 2}
 --- !u!114 &1565109039
