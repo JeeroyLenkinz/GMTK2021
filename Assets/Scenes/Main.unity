@@ -29747,6 +29747,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 6008484832224545980, guid: 8fc66a32089223a4e917d9cf7ff0d5e7, type: 3}
+      propertyPath: data.dataString
+      value: UEsDBBQAAAgIAACAn+v+KDdybAIAABUFAAALACQAZ3JhcGgwLmpzb24KACAAAAAAAAEAGAAAgD7V3rGdAQCAPtXesZ0BAIA+1d6xnQFlVEtzmzAQ/isenWuPwM/01hLH6SGPqdvJhYsMi9FYSIwesZ2M/3tXAgxxuSC+fX3f7opPwqWpIbNKbzTPn1QO5PuI+DP5NuqNj3BieyW3/AM6nzee29I7seDzm1muEI98mFEVWM2zH3IvvDNF0EleKF2t8z0kyliDcMGEATRpZX20ROhzRE74Gt/5kDOe4qU/feDpjo4ueMxAWtAD12hC/TNrA+hkdofPKmrDxvEkns6jxTKO12O6DDmczASrasi9oD7VdNnmmM4m8+AoUWzrQydzX10JwU3LldhzHXqRsNo4VIoOOWeoPRD0DErg+9J6HcPgl6IwYNvGaHa+5xpb2GQlP1XT14qZQ8PtnQnn68TzRWDVJH36zz6OgrnQqnrs6kbU17Alzw6/2Tljxg4aP4TvvxJ38sjEge0EvJUgn9VGKydzNFrtfKgzEN/3n1dpSQnZoccbqjegq/ued3Pupuw1XIL6UyJ4tWsm2gBboUK/w3KAxtn8QsJhdUybAlHP4q+BP2w/3LHW8MC1sWhqVUpPb6ec9q5kHXrm1TibKC0hwC3pGiQT9vyKaeztCG9sg7I3lgfmb1NbvLV1l+QmJMC9P6U3pld1vA7LlOr4BKZ8cVZwCT1pb3jGPiVKymbDhj3pwrZOFywbhO0dz7+uFlksp6sZpSuYT4v5ku7GjFEK8SyL6IJBsVqRsHtcok4mXhuibXtwarJPLnHPup/MaKNZHbY91+y44R+VGhLkslDbTAPIlybFlTlorIIXM1/nHDu0BWu5DAMnnykRKjtAnl5rpkHq+mQ1S/ssKan5u7IeSUkSfispuZDLP1BLAwQUAAAICAAAgJ/rZIThaG0AAAB4AAAACQAkAG1ldGEuanNvbgoAIAAAAAAAAQAYAACAPtXesZ0BAIA+1d6xnQEAgD7V3rGdAatWKkstKs7Mz1OyUjDRM9IzNNVRUEovSizIKAaKGII4pZkpIHa0kpm5sYWJgYFFqqlxmqm5QZJuYqKBQaqRSbKhgVliapqFhVIsUH1JZUGqX2JuKkRPQGJJRlpmXkpmXrqee1FmijvIaKXYWgBQSwECLQAUAAAICAAAgJ/r/ig3cmwCAAAVBQAACwAkAAAAAAAAAAAAAAAAAAAAZ3JhcGgwLmpzb24KACAAAAAAAAEAGAAAgD7V3rGdAQCAPtXesZ0BAIA+1d6xnQFQSwECLQAUAAAICAAAgJ/rZIThaG0AAAB4AAAACQAkAAAAAAAAAAAAAAC5AgAAbWV0YS5qc29uCgAgAAAAAAABABgAAIA+1d6xnQEAgD7V3rGdAQCAPtXesZ0BUEsFBgAAAAACAAIAuAAAAHEDAAAAAA==
+      objectReference: {fileID: 0}
     - target: {fileID: 6008484832224545981, guid: 8fc66a32089223a4e917d9cf7ff0d5e7, type: 3}
       propertyPath: m_RootOrder
       value: 5
@@ -29812,10 +29816,6 @@ PrefabInstance:
       propertyPath: player
       value: 
       objectReference: {fileID: 614270339}
-    - target: {fileID: 6999819925220377442, guid: 1a246b3a8c262e7468d266b0562eeb67, type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 6999819925516426233, guid: 1a246b3a8c262e7468d266b0562eeb67, type: 3}
       propertyPath: m_Name
       value: Main Camera
@@ -29863,10 +29863,6 @@ PrefabInstance:
     - target: {fileID: 6999819925516426236, guid: 1a246b3a8c262e7468d266b0562eeb67, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6999819925516426237, guid: 1a246b3a8c262e7468d266b0562eeb67, type: 3}
-      propertyPath: m_Cameras.Array.size
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6999819925516426237, guid: 1a246b3a8c262e7468d266b0562eeb67, type: 3}
       propertyPath: m_Cameras.Array.data[0]

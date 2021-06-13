@@ -476,11 +476,11 @@ MonoBehaviour:
     _constantValue: 0
     _variable: {fileID: 11400000, guid: 65cd254a33a3b9f4ebb59762719e3379, type: 2}
   startChannelSFX: {fileID: 8300000, guid: 7ddf9b087f5eebf40947747d9bc39484, type: 3}
-  startChannelSFXVolume: 1
+  startChannelSFXVolume: 0.8
   endChannelSFX: {fileID: 8300000, guid: 717903304e7f6044facae66d9f857f53, type: 3}
-  endChannelSFXVolume: 1
+  endChannelSFXVolume: 1.2
   severConnectionSFX: {fileID: 8300000, guid: 67051921f074a4889bbef5d5300741c4, type: 3}
-  severConnectionSFXVolume: 1
+  severConnectionSFXVolume: 8
   channelHealthSO:
     _useConstant: 0
     _constantValue: 0
