@@ -35,6 +35,7 @@ public class PlayerManager : MonoBehaviour
     private Animator animController;
 
     bool isAlreadyWalking;
+    [HideInInspector]
     public AudioSource audioSource;
     [SerializeField]
     private AudioClip dashSFX;
@@ -47,6 +48,7 @@ public class PlayerManager : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         state = State.Normal;
         animController = GetComponentInChildren<Animator>();
+        audioSource = GetComponent<AudioSource>();
     }
 
     public void Update() {
@@ -57,6 +59,8 @@ public class PlayerManager : MonoBehaviour
                     dashDir = moveDir;
                     currentDashSpeed = maxDashSpeed;
                     state = State.Dashing;
+                    audioSource.clip = dashSFX;
+                    audioSource.Play();
                 }
                 break;
             case State.Dashing:

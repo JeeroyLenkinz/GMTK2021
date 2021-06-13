@@ -29,10 +29,10 @@ public class HumanManager : PlayerManager
     private GameEvent gameOverEvent;
     [SerializeField]
     private GameEvent severConnectionEvent;
+    public AudioClip dieSFX;
+    public AudioClip reconnectToGhostSFX;
 
-    // private new void Awake() {
-    //     base.Awake();
-    // }
+    private bool isDead;
     
     void Start()
     {
@@ -40,14 +40,17 @@ public class HumanManager : PlayerManager
         isChanneling.Value = false;
         ghost.SetActive(false);
         pChain = GetComponent<PlayerChain>();
+        isDead = false;
     }
 
     public void e_channelTriggered() {
-        if (isChanneling.Value) {
-            isMovingToGhost.Value = true;
-            stopChanneling.Raise(); // Camera and FX manager hears this, and will trigger an FX done event to do the actual mechanix
-        } else {
-            startChanneling.Raise();
+        if (!isDead) {
+            if (isChanneling.Value) {
+                isMovingToGhost.Value = true;
+                stopChanneling.Raise(); // Camera and FX manager hears this, and will trigger an FX done event to do the actual mechanix
+            } else {
+                startChanneling.Raise();
+            }
         }
     }
 
@@ -83,6 +86,8 @@ public class HumanManager : PlayerManager
     private void reconnectToGhost() {
         isSevered.Value = false;
         ghost.SetActive(false);
+        audioSource.clip = reconnectToGhostSFX;
+        audioSource.Play();
     }
 
     private IEnumerator MoveToGhostCoroutine(List<GameObject> chainedEnemies)
@@ -180,7 +185,7 @@ public class HumanManager : PlayerManager
     }
 
     public void e_getHit() {
-        if (!isMovingToGhost.Value) 
+        if (!isMovingToGhost.Value && !isDead) 
         {
             if (isChanneling.Value) {
                 // Initiate sever
@@ -188,7 +193,11 @@ public class HumanManager : PlayerManager
                 ghost.GetComponent<GhostManager>().StartSever();
             } else {
                 // Die
+                isDead = true;
                 gameOverEvent.Raise();
+                disableMovement();
+                audioSource.clip = dieSFX;
+                audioSource.Play();
             }
         }
     }

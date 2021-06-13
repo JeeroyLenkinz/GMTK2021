@@ -26,6 +26,10 @@ public class GhostManager : PlayerManager
     private BoolReference isMovingToGhost;
 
     public float healthDecayMod;
+    public AudioClip markEnemySFX;
+    public AudioClip startChannelSFX;
+    public AudioClip endChannelSFX;
+    public AudioClip severConnectionSFX;
 
     private new void Awake()
     {
@@ -40,6 +44,8 @@ public class GhostManager : PlayerManager
     private void OnEnable()
     {
         channelHealthSO.Value = 100;
+        audioSource.clip = startChannelSFX;
+        audioSource.Play();
     }
 
     private new void Update()
@@ -84,6 +90,8 @@ public class GhostManager : PlayerManager
                 enemyHit.Raise(enemy);
             }
 
+            audioSource.clip = markEnemySFX;
+            audioSource.Play();
             channelHealthSO.Value += 5;
 
         }
@@ -93,6 +101,8 @@ public class GhostManager : PlayerManager
     {
         isWaiting = true;
         disableMovement();
+        audioSource.clip = endChannelSFX;
+        audioSource.Play();
         player.GetComponent<HumanManager>().MoveToGhost(chainedEnemies);
         while (isWaiting)       // Waiting for the movement to end
         {
@@ -116,6 +126,8 @@ public class GhostManager : PlayerManager
     public void StartSever() {
         isSevered.Value = true;
         isChanneling.Value = false;
+        audioSource.clip = severConnectionSFX;
+        audioSource.Play();
         StartCoroutine(SeverConnection());
     }
     private IEnumerator SeverConnection()

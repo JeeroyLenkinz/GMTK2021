@@ -32,6 +32,8 @@ public class SpawnManager : MonoBehaviour
     [SerializeField]
     private List<int> enemiesPerWave = new List<int>();
     private bool isWaitingForWaveStart;
+    private AudioSource audioSource;
+    public AudioClip killEnemySFX;
     
     // Start is called before the first frame update
     void Awake()
@@ -43,6 +45,7 @@ public class SpawnManager : MonoBehaviour
         hasWon = false;
         isWaitingForWaveStart = false;
         enemiesSpawnedThisWave = 0;
+        audioSource = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -94,5 +97,7 @@ public class SpawnManager : MonoBehaviour
     public void e_EnemyDestroyed() {
         currentActiveEnemies--;
         score.Value += scoreIncrementAmount;
+        audioSource.clip = killEnemySFX;
+        audioSource.Play();
     }
 }
