@@ -71,7 +71,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   version: 1
-  uniqueID: 9115951633563818737
+  uniqueID: 6286942428116392869
   updateError: 1
   checkTime: 0.2
 --- !u!1 &1475565269
@@ -175,7 +175,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   version: 1
-  uniqueID: 7211173851418860092
+  uniqueID: 5630763007918364831
   updateError: 1
   checkTime: 0.2
 --- !u!1 &372223687450664747
@@ -413,7 +413,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: a2b412523ded540d69a610404f20a0c7, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 29aa2e933c68a462e9b8f6e449e6f03b, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
