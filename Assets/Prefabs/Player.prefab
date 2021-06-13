@@ -1139,6 +1139,8 @@ MonoBehaviour:
   - {fileID: 2570418446106801260}
   - {fileID: 4356615263223063935}
   - {fileID: 1982595536315182566}
+  totalLives: 3
+  setCurrentLivesEvent: {fileID: 11400000, guid: ab3815ed64ae2d749b3ec283e8a3b5fd, type: 2}
 --- !u!114 &614270341
 MonoBehaviour:
   m_ObjectHideFlags: 0

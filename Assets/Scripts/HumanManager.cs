@@ -44,6 +44,11 @@ public class HumanManager : PlayerManager
     public float invincibilityDurationSeconds;
     [SerializeField]
     private List<SpriteRenderer> artAssets = new List<SpriteRenderer>();
+    [SerializeField]
+    private int totalLives = 3;
+    private int currentLives;
+    [SerializeField]
+    private IntGameEvent setCurrentLivesEvent;
 
     void Start()
     {
@@ -53,6 +58,7 @@ public class HumanManager : PlayerManager
         pChain = GetComponent<PlayerChain>();
         isDead = false;
         isInvincible = false;
+        currentLives = totalLives;
     }
 
     public void e_channelTriggered() {
@@ -217,13 +223,19 @@ public class HumanManager : PlayerManager
                 StartCoroutine(setInvincible());
                 ghost.GetComponent<GhostManager>().StartSever();
             } else {
-                // Die
-                isDead = true;
-                gameOverEvent.Raise();
-                disableMovement();
-                audioSource.clip = dieSFX;
-                audioSource.volume = dieSFXVolume;
-                audioSource.Play();
+                currentLives--;
+                setCurrentLivesEvent.Raise(currentLives);
+                if (currentLives <= 0) {
+                    isDead = true;
+                    gameOverEvent.Raise();
+                    disableMovement();
+                    audioSource.clip = dieSFX;
+                    audioSource.volume = dieSFXVolume;
+                    audioSource.Play();
+                } else {
+                    StartCoroutine(setInvincible());
+                }
+
             }
         }
     }
