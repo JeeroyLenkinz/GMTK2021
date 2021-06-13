@@ -11,7 +11,7 @@ public class PlayerChain : MonoBehaviour
 
     private void Awake()
     {
-        lineRenderer = GetComponent<LineRenderer>();
+        lineRenderer = GetComponentInChildren<LineRenderer>();
         lineRenderer.widthMultiplier = 0.3f;
         lineRenderer.enabled = false;
     }

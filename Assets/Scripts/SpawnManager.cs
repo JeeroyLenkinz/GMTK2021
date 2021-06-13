@@ -34,6 +34,8 @@ public class SpawnManager : MonoBehaviour
     private bool isWaitingForWaveStart;
     private AudioSource audioSource;
     public AudioClip killEnemySFX;
+    [SerializeField]
+    private IntGameEvent waveNumberEvent;
     
     // Start is called before the first frame update
     void Awake()
@@ -62,6 +64,7 @@ public class SpawnManager : MonoBehaviour
             if (currentWave < (enemiesPerWave.Count - 1)) {
                 currentWave++;
                 enemiesSpawnedThisWave = 0;
+                waveNumberEvent.Raise(currentWave+1);
             } else {
                 if (!hasWon) {
                     hasWon = true;

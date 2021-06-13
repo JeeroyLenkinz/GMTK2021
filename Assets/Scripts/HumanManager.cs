@@ -177,7 +177,7 @@ public class HumanManager : PlayerManager
 
     private void EndOfDash()
     {
-        GetComponent<LineRenderer>().enabled = false;
+        GetComponentInChildren<LineRenderer>().enabled = false;
         GetComponent<CapsuleCollider2D>().enabled = true;
         ghost.GetComponent<GhostManager>().StopWaiting();
     }

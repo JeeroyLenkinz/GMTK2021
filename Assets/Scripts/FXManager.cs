@@ -5,6 +5,7 @@ using UnityEngine.Rendering;
 using UnityEngine.Rendering.Universal;
 using DG.Tweening;
 using ScriptableObjectArchitecture;
+using UnityEditorInternal;
 
 public class FXManager : MonoBehaviour
 {
@@ -14,6 +15,7 @@ public class FXManager : MonoBehaviour
     private VignetteGet vigScript;
 
     public Camera cam;
+    public Camera overlaycam;
 
     Vignette vignette;
     ColorAdjustments colorAdjust;
@@ -22,6 +24,15 @@ public class FXManager : MonoBehaviour
     public float ghostVigIntensity;
     public float defaultVigIntensity;
     public float defaultSaturation;
+
+    bool isSummoning = false;
+    bool isDesummoning = false;
+
+    float summonTimer = 0f;
+    float summonEffectDur = 2f;
+
+    float vigIntensity = 0.24f;
+    float sat = 10f;
 
     // Start is called before the first frame update
     void Start()
@@ -36,9 +47,16 @@ public class FXManager : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void LateUpdate()
     {
-        
+        if (isSummoning)
+        {
+            SummonStartFX();
+        }
+        if (isDesummoning)
+        {
+            DeSummonStartFX();
+        }
     }
 
     public void e_Heard_Move_To_Ghost()
@@ -50,32 +68,53 @@ public class FXManager : MonoBehaviour
     {
         float effectDur = 0.3f;
         cam.gameObject.GetComponent<CameraFollow>().GhostReached(effectDur);
+        overlaycam.gameObject.GetComponent<CameraFollow>().GhostReached(effectDur);
+        isDesummoning = true;
+        summonTimer = 0f;
     }
 
     public void e_Heard_Summon_Start()
     {
-        StartCoroutine(SummonStartFX());
+        isSummoning = true;
     }
 
-    private IEnumerator SummonStartFX()
+    private void SummonStartFX()
     {
-        float timer = 0f;
-        float effectDur = 1f;
 
-        float vigIntensity = (float)vignette.intensity;
-        float sat = (float)colorAdjust.saturation;
 
-        DOTween.To(() => vigIntensity, x => vigIntensity = x, ghostVigIntensity, effectDur);
-        DOTween.To(() => sat, x => sat = x, 0f, effectDur);
-        Debug.Log("About to desat");
-        while (timer < effectDur)
+        if (summonTimer < summonEffectDur)
         {
-            timer += Time.deltaTime;
+            summonTimer += Time.deltaTime;
+            vigIntensity = Mathf.Lerp(vigIntensity, ghostVigIntensity, 0.01f);
+            sat = Mathf.Lerp(sat, -100f, 0.05f);
             vignette.intensity.Override(vigIntensity);
-            colorAdjust.saturation.Override(0f);
+            colorAdjust.saturation.Override(sat);
         }
-        Debug.Log("Desat");
-        yield return null;
+        else
+        {
+            isDesummoning = false;
+        }
+
+
+    }
+
+    private void DeSummonStartFX()
+    {
+
+
+        if (summonTimer < summonEffectDur)
+        {
+            summonTimer += Time.deltaTime;
+            vigIntensity = Mathf.Lerp(vigIntensity, defaultVigIntensity, 0.01f);
+            sat = Mathf.Lerp(sat, defaultSaturation, 1f);
+            vignette.intensity.Override(vigIntensity);
+            colorAdjust.saturation.Override(sat);
+        }
+        else
+        {
+            isSummoning = false;
+        }
+
 
     }
 
@@ -83,6 +122,7 @@ public class FXManager : MonoBehaviour
     {
         float effectDur = 0.65f;        // How long the cumulative effect is
         cam.gameObject.GetComponent<CameraFollow>().Stop_Channel(effectDur);
+        overlaycam.gameObject.GetComponent<CameraFollow>().Stop_Channel(effectDur);
         yield return new WaitForSeconds(effectDur);
         moveToGhostFXDone.Raise();
         yield return null;
