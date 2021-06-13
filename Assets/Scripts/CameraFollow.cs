@@ -18,6 +18,7 @@ public class CameraFollow : MonoBehaviour
 
     public GameObject player;
     public GameObject ghost;
+    public GameObject parent;
 
     private Transform target;
     Camera cam;
@@ -26,6 +27,8 @@ public class CameraFollow : MonoBehaviour
     private float newZoom;
     private bool isAnimating;
     private bool isMovingToGhost;
+
+    public bool IsMainCam;
 
     private enum Status
     {
@@ -48,8 +51,11 @@ public class CameraFollow : MonoBehaviour
 
     private void LateUpdate()
     {
+        if (IsMainCam)
+        {
+            Move();
+        }
 
-        Move();
         Zoom();
     }
 
@@ -109,7 +115,7 @@ public class CameraFollow : MonoBehaviour
             Vector3 desiredPosition = target.position + offset;
             Vector3 smoothedPosition = Vector3.Lerp(transform.position, desiredPosition, smoothSpeed * Time.deltaTime);
 
-            transform.position = smoothedPosition;
+            parent.transform.position = smoothedPosition;
         }
 
     }
@@ -122,7 +128,11 @@ public class CameraFollow : MonoBehaviour
             {
                 isMovingToGhost = true;
                 isAnimating = true;
-                cam.gameObject.transform.DOMove(target.position + offset, moveToGhostDur).SetEase(Ease.InOutBack);
+                if (IsMainCam)
+                {
+                    parent.transform.DOMove(target.position + offset, moveToGhostDur).SetEase(Ease.InOutBack);
+                }
+
                 cam.DOOrthoSize(movingToGhostZoom, moveToGhostDur).SetEase(Ease.InOutBack).SetEase(Ease.InOutBack);
                 StartCoroutine(WaitForZoomIn(moveToGhostDur));
             }

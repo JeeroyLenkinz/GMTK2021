@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Pathfinding;
 using UnityEngine.Experimental.Rendering.Universal;
+using ScriptableObjectArchitecture;
 
 public class Enemy : MonoBehaviour
 {
@@ -21,6 +22,7 @@ public class Enemy : MonoBehaviour
     [SerializeField]
     private GameObject explodedEnemyPrefab;
     private Animator animController;
+    public GameEvent enemyDestroyedEvent;
 
     public Light2D pointLight;
 
@@ -109,6 +111,7 @@ public class Enemy : MonoBehaviour
 
     public void Explode()
     {
+        enemyDestroyedEvent.Raise();
         GameObject explosion = Instantiate(explodedEnemyPrefab, transform.position, Quaternion.identity);
         explosion.GetComponent<ExplodeEnemy>().ExplodeMe(explosionOrigin);
         //Destroy(this.gameObject);
