@@ -281,9 +281,9 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingLayerID: -331060227
+  m_SortingLayer: 10
+  m_SortingOrder: -1
   m_Sprite: {fileID: 21300000, guid: 29aa2e933c68a462e9b8f6e449e6f03b, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -1129,6 +1129,7 @@ MonoBehaviour:
     _variable: {fileID: 11400000, guid: e28a30906b13179448baaa8a7781d491, type: 2}
   gameOverEvent: {fileID: 11400000, guid: ff4597689aadcd94eb20da621ef398bd, type: 2}
   severConnectionEvent: {fileID: 11400000, guid: d7a5c46526a158846b58a0b1e1c33501, type: 2}
+  reConnectToGhostEvent: {fileID: 11400000, guid: 5365afef203157b48998442d5e48e1a7, type: 2}
   ArtBigGO: {fileID: 3006413473010556806}
   trailGO: {fileID: 812438431}
 --- !u!114 &614270341
