@@ -458,6 +458,7 @@ MonoBehaviour:
   moveSpeed: 7
   maxDashSpeed: 20
   dashSpeedDropMultiplier: 2
+  dashCooldown: 1.5
   isTeleporting:
     _useConstant: 0
     _constantValue: 0
@@ -470,6 +471,10 @@ MonoBehaviour:
   dashSFX: {fileID: 8300000, guid: 5a3d322ad96ac3949bcfe2e47e239a66, type: 3}
   dashSFXVolume: 1
   lastMoveDir: {x: 0, y: 0, z: 0}
+  canDash:
+    _useConstant: 0
+    _constantValue: 0
+    _variable: {fileID: 11400000, guid: 65cd254a33a3b9f4ebb59762719e3379, type: 2}
   startChannelSFX: {fileID: 8300000, guid: 7ddf9b087f5eebf40947747d9bc39484, type: 3}
   startChannelSFXVolume: 1
   endChannelSFX: {fileID: 8300000, guid: 717903304e7f6044facae66d9f857f53, type: 3}

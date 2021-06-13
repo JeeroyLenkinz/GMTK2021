@@ -13,12 +13,15 @@ public class InputManager : MonoBehaviour
     private BoolReference isDashing;
     [SerializeField]
     private GameEvent channelTriggered;
+    [SerializeField]
+    private BoolReference canDash;
     // Start is called before the first frame update
     void Awake()
     {
         horizontalMove.Value = 0f;
         verticalMove.Value = 0f;
         isDashing.Value = false;
+        canDash.Value = true;
     }
 
     // Update is called once per frame
@@ -26,7 +29,7 @@ public class InputManager : MonoBehaviour
     {
         horizontalMove.Value = Input.GetAxisRaw("Horizontal");
         verticalMove.Value = Input.GetAxisRaw("Vertical");
-        if (Input.GetButtonDown("Dash")) {
+        if (Input.GetButtonDown("Dash") && canDash.Value) {
             isDashing.Value = true;
         }
         if (Input.GetButtonDown("Channel")) {

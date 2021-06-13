@@ -24,6 +24,8 @@ public class PlayerManager : MonoBehaviour
     private float currentDashSpeed;
     public float maxDashSpeed;
     public float dashSpeedDropMultiplier;
+    public float dashCooldown;
+    private float currentDashCooldownTimer;
 
     // Teleport Code
     [SerializeField]
@@ -43,6 +45,8 @@ public class PlayerManager : MonoBehaviour
     private float dashSFXVolume;
     [HideInInspector]
     public Vector3 lastMoveDir;
+    [SerializeField]
+    private BoolReference canDash;
 
     private Rigidbody2D rb;
     // Start is called before the first frame update
@@ -53,9 +57,14 @@ public class PlayerManager : MonoBehaviour
         animController = GetComponentInChildren<Animator>();
         audioSource = GetComponent<AudioSource>();
         lastMoveDir = new Vector2(1,0);
+        currentDashCooldownTimer = 0;
     }
 
     public void Update() {
+        currentDashCooldownTimer -= Time.deltaTime;
+        if (currentDashCooldownTimer <= 0) {
+            canDash.Value = true;
+        }
         switch (state) {
             case State.Normal:
                 if (moveDir != Vector3.zero) {
@@ -66,13 +75,15 @@ public class PlayerManager : MonoBehaviour
                     dashDir = moveDir;
                     currentDashSpeed = maxDashSpeed;
                     state = State.Dashing;
+                    canDash.Value = false;
+                    currentDashCooldownTimer = dashCooldown;
                     audioSource.clip = dashSFX;
                     audioSource.volume = dashSFXVolume;
                     audioSource.Play();
                 }
                 break;
             case State.Dashing:
-                currentDashSpeed -= currentDashSpeed * dashSpeedDropMultiplier * Time.fixedDeltaTime;
+                currentDashSpeed -= currentDashSpeed * dashSpeedDropMultiplier * Time.deltaTime;
                 if (currentDashSpeed <= moveSpeed) {
                     state = State.Normal;
                     isDashing.Value = false;

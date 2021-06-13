@@ -56,3 +56,7 @@ MonoBehaviour:
     _constantValue: 0
     _variable: {fileID: 11400000, guid: e83e3a225a55e4040b216d8bf63625ce, type: 2}
   channelTriggered: {fileID: 11400000, guid: 6bae8c3ce32e3d04c966d1475cc49b0c, type: 2}
+  canDash:
+    _useConstant: 0
+    _constantValue: 0
+    _variable: {fileID: 11400000, guid: 65cd254a33a3b9f4ebb59762719e3379, type: 2}

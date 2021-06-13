@@ -46,7 +46,7 @@ public class HumanManager : PlayerManager
     }
 
     public void e_channelTriggered() {
-        if (!isDead) {
+        if (!isDead && !getIsDashing()) {
             if (isChanneling.Value) {
                 isMovingToGhost.Value = true;
                 stopChanneling.Raise(); // Camera and FX manager hears this, and will trigger an FX done event to do the actual mechanix
