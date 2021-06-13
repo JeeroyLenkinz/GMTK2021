@@ -98,6 +98,12 @@ public class PlayerManager : MonoBehaviour
                         isAlreadyWalking = true;
                     }
 
+                    //Flip Sprite
+                    if (rb.velocity.x >= 0) {
+                        transform.localScale = new Vector2(3, 3);
+                    } else {
+                        transform.localScale = new Vector2(-3, 3);
+                    }
                 }
                 
                 if (isTeleporting.Value) {
