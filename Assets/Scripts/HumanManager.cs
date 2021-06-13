@@ -17,6 +17,7 @@ public class HumanManager : PlayerManager
     private GameEvent startChanneling;
     [SerializeField]
     private GameEvent stopChanneling;
+    public float ghostSpawnOffset;
 
     public float moveToGhostSpeed;
 
@@ -59,7 +60,10 @@ public class HumanManager : PlayerManager
             Debug.Log("Start channeling!");
             isChanneling.Value = true;
             disableMovement();
-            ghost.transform.position = gameObject.transform.position;
+            ghost.transform.position = gameObject.transform.position + (lastMoveDir * ghostSpawnOffset);
+            if (ghost.transform.position.x < gameObject.transform.position.x) {
+                ghost.transform.localScale = new Vector2(-3, 3);
+            }
             ghost.SetActive(true);
             ghost.GetComponent<GhostManager>().enableMovement();
             GetComponent<PlayerChain>().OnSummon();

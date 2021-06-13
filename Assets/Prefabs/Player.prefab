@@ -742,6 +742,7 @@ MonoBehaviour:
   teleportAmount: 2
   audioSource: {fileID: 0}
   dashSFX: {fileID: 8300000, guid: 5a3d322ad96ac3949bcfe2e47e239a66, type: 3}
+  lastMoveDir: {x: 0, y: 0, z: 0}
   ghost: {fileID: 0}
   enemyDestroyedEvent: {fileID: 11400000, guid: 93ef3f6226478b5478e1391184864caf, type: 2}
   isChanneling:
@@ -750,6 +751,7 @@ MonoBehaviour:
     _variable: {fileID: 11400000, guid: e9683339dbdde9f44ba5d357829346d9, type: 2}
   startChanneling: {fileID: 11400000, guid: 24ebdd2b2bbb74f458fb35836365ca4e, type: 2}
   stopChanneling: {fileID: 11400000, guid: 2db3af13f0e66ef4fa7eef5cfae85118, type: 2}
+  ghostSpawnOffset: 2
   moveToGhostSpeed: 20
   isSevered:
     _useConstant: 0

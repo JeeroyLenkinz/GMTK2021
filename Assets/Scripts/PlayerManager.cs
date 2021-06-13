@@ -39,7 +39,8 @@ public class PlayerManager : MonoBehaviour
     public AudioSource audioSource;
     [SerializeField]
     private AudioClip dashSFX;
-
+    [HideInInspector]
+    public Vector3 lastMoveDir;
 
     private Rigidbody2D rb;
     // Start is called before the first frame update
@@ -49,11 +50,15 @@ public class PlayerManager : MonoBehaviour
         state = State.Normal;
         animController = GetComponentInChildren<Animator>();
         audioSource = GetComponent<AudioSource>();
+        lastMoveDir = new Vector2(1,0);
     }
 
     public void Update() {
         switch (state) {
             case State.Normal:
+                if (moveDir != Vector3.zero) {
+                    lastMoveDir = moveDir;
+                }
                 moveDir = new Vector2(horizontalMove.Value, verticalMove.Value).normalized;
                 if (isDashing.Value) {
                     dashDir = moveDir;
