@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 4342586521218006145}
   - component: {fileID: 4342586521218006144}
   - component: {fileID: 1188415969}
-  - component: {fileID: 302279811}
+  - component: {fileID: 302279812}
   m_Layer: 0
   m_Name: VFXmanager
   m_TagString: Untagged
@@ -47,8 +47,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveToGhostFXDone: {fileID: 11400000, guid: d34e2ad4bdabacb4a807061ce4c487e9, type: 2}
-  vigScript: {fileID: 302279811}
+  vigScript: {fileID: 0}
   cam: {fileID: 0}
+  overlaycam: {fileID: 0}
   ghostVigIntensity: 0.5
   defaultVigIntensity: 0.24
   defaultSaturation: 10
@@ -116,7 +117,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &302279811
+--- !u!114 &302279812
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -125,6 +126,26 @@ MonoBehaviour:
   m_GameObject: {fileID: 4342586521218006147}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 828de3441a1998d4db76e8b0dac6a4ed, type: 3}
+  m_Script: {fileID: 11500000, guid: 5758ca93461aeeb4589456a052b07d74, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _showDebugFields: 0
+  _enableGizmoDebugging: 1
+  _debugColor: {r: 0, g: 1, b: 1, a: 1}
+  _previouslyRegisteredEvent: {fileID: 11400000, guid: 24ebdd2b2bbb74f458fb35836365ca4e, type: 2}
+  _event: {fileID: 11400000, guid: 24ebdd2b2bbb74f458fb35836365ca4e, type: 2}
+  _response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 4342586521218006145}
+        m_TargetAssemblyTypeName: FXManager, Assembly-CSharp
+        m_MethodName: e_Heard_Summon_Start
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
