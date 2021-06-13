@@ -13,9 +13,10 @@ public class Fader : MonoBehaviour
 
     private void Awake()
     {
-        if(SceneManager.GetActiveScene().ToString() != "Title")
+        e_Fade_In();
+        if (SceneManager.GetActiveScene().ToString() != "Title")
         {
-            e_Fade_In();
+
         }
     }
 
