@@ -49,6 +49,8 @@ public class PlayerManager : MonoBehaviour
     private BoolReference canDash;
 
     private Rigidbody2D rb;
+    [SerializeField]
+    private SpriteRenderer wandSparkSprite;
     // Start is called before the first frame update
     public void Awake() {
         isAlreadyWalking = false;
@@ -58,6 +60,7 @@ public class PlayerManager : MonoBehaviour
         audioSource = GetComponent<AudioSource>();
         lastMoveDir = new Vector2(1,0);
         currentDashCooldownTimer = 0;
+        wandSparkSprite.enabled = true;
     }
 
     public void Update() {
@@ -91,6 +94,12 @@ public class PlayerManager : MonoBehaviour
                 break;
             case State.Unmovable:
                 break;
+        }
+
+        if (canDash.Value) {
+            wandSparkSprite.enabled = true;
+        } else {
+            wandSparkSprite.enabled = false;
         }
 
     }
