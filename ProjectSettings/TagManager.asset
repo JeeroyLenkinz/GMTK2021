@@ -19,8 +19,8 @@ TagManager:
   - Player
   - ExplodedEnemy
   - Shadow
-  - 
-  - 
+  - Border
+  - Enemy
   - 
   - 
   - 
@@ -66,6 +66,9 @@ TagManager:
     locked: 0
   - name: Ghost
     uniqueID: 3878632603
+    locked: 0
+  - name: FrontTrees
+    uniqueID: 327682557
     locked: 0
   - name: VFXInfront
     uniqueID: 3963907069

@@ -457,7 +457,7 @@ MonoBehaviour:
     _variable: {fileID: 11400000, guid: e83e3a225a55e4040b216d8bf63625ce, type: 2}
   moveSpeed: 7
   maxDashSpeed: 20
-  dashSpeedDropMultiplier: 0.7
+  dashSpeedDropMultiplier: 2
   isTeleporting:
     _useConstant: 0
     _constantValue: 0

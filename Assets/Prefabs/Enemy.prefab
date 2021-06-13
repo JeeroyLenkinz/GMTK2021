@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 498973170}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: AttackPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -41,7 +41,7 @@ GameObject:
   - component: {fileID: 685971708}
   - component: {fileID: 685971709}
   - component: {fileID: 685971710}
-  m_Layer: 8
+  m_Layer: 13
   m_Name: LocalAvoidanceZone
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -116,7 +116,7 @@ GameObject:
   - component: {fileID: 1638825236}
   - component: {fileID: 4200643169181408161}
   - component: {fileID: 8238696627738789821}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Art
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -235,7 +235,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5532951807809584742}
   - component: {fileID: 6705100652003189547}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Enemy Arm-Front
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -317,7 +317,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8410634193125819880}
   - component: {fileID: 5894096918840683853}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: _lub
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -400,7 +400,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4608003289201890416}
   - component: {fileID: 7003267438476232478}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Enemy Arm-Back
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -491,7 +491,7 @@ GameObject:
   - component: {fileID: 978000883}
   - component: {fileID: 754104969}
   - component: {fileID: 871501555}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Enemy
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -802,7 +802,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2759922384092940962}
   - component: {fileID: 5187280299223933742}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: WeaponTrail
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -884,7 +884,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1955219929534107739}
   - component: {fileID: 3066360511305819437}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: _nemy-LegBack
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -966,7 +966,7 @@ GameObject:
   m_Component:
   - component: {fileID: 162006508184799306}
   - component: {fileID: 8437716518795176191}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: _nemy-LegFront
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1048,7 +1048,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4438253387115333684}
   - component: {fileID: 2009446083368357780}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: _nemy-Body
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1131,7 +1131,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4735267214901974866}
   - component: {fileID: 8921900429300419218}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Enemy-helmet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1213,7 +1213,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3808014531476077230}
   - component: {fileID: 5129143246357628913}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: _nemy-belly
   m_TagString: Untagged
   m_Icon: {fileID: 0}

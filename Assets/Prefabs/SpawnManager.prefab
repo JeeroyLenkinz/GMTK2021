@@ -51,7 +51,7 @@ MonoBehaviour:
   waveCooldownSeconds: 5
   minEnemySpeed: 0.5
   maxEnemySpeed: 2.5
-  spawnCircleRadius: 10
+  spawnCircleRadius: 15
   enemyPrefab: {fileID: 2753194330981907370, guid: 389d7ef6544b0754db6b8d65b8df675f, type: 3}
   playerObj: {fileID: 0}
   victoryEvent: {fileID: 11400000, guid: aee14cab07a9a9c4e91d164e06426489, type: 2}

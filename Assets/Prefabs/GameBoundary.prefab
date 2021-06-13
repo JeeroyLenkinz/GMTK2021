@@ -1,0 +1,79 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &4264114374525936780
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4264114374525936787}
+  - component: {fileID: 4264114374525936786}
+  m_Layer: 12
+  m_Name: GameBoundary
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4264114374525936787
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4264114374525936780}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.8471347, y: -2.431014, z: -32.53199}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!60 &4264114374525936786
+PolygonCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4264114374525936780}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Points:
+    m_Paths:
+    - - {x: -13.470354, y: 11.430553}
+      - {x: -11.541512, y: 15.616859}
+      - {x: 4.6339345, y: 15.054733}
+      - {x: 6.705983, y: 13.8483715}
+      - {x: 12.697121, y: 10.110159}
+      - {x: 9.511498, y: 1.5701361}
+      - {x: 8.523242, y: -1.0791821}
+      - {x: 8.447218, y: -0.5679507}
+      - {x: 7.7574844, y: -4.827388}
+      - {x: 2.2688084, y: -10.978603}
+      - {x: -8.318702, y: -9.453292}
+      - {x: -10.376542, y: -11.531375}
+      - {x: 2.6451163, y: -12.518992}
+      - {x: 9.327775, y: -7.251547}
+      - {x: 13.591273, y: 11.6231365}
+      - {x: 6.998404, y: 17.112389}
+      - {x: -11.9076805, y: 17.984367}
+      - {x: -19.474436, y: 3.7500873}
+      - {x: -10.431358, y: -11.47149}
+      - {x: -8.330512, y: -9.430494}
+      - {x: -15.861064, y: 2.829238}

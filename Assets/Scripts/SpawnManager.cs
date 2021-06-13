@@ -100,4 +100,8 @@ public class SpawnManager : MonoBehaviour
         audioSource.clip = killEnemySFX;
         audioSource.Play();
     }
+
+    void OnDrawGizmosSelected() {
+        Gizmos.DrawWireSphere(transform.position, spawnCircleRadius);
+    }
 }
