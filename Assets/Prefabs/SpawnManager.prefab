@@ -18,7 +18,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &2301391236564440417
 Transform:
   m_ObjectHideFlags: 0
@@ -62,6 +62,7 @@ MonoBehaviour:
   scoreIncrementAmount: 1
   enemiesPerWave: 0a0000000f00000014000000
   killEnemySFX: {fileID: 8300000, guid: ade126c2705f84808afba2e527fcbfb9, type: 3}
+  waveNumberEvent: {fileID: 11400000, guid: 5d17786559e60ac43acb61784781e6ea, type: 2}
 --- !u!114 &1565109039
 MonoBehaviour:
   m_ObjectHideFlags: 0
