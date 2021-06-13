@@ -38,6 +38,8 @@ public class SpawnManager : MonoBehaviour
     [SerializeField]
     private IntGameEvent waveNumberEvent;
     private bool startOfGame;
+    [SerializeField]
+    private GameEvent startEvent;
     
     // Start is called before the first frame update
     void Awake()
@@ -98,7 +100,10 @@ public class SpawnManager : MonoBehaviour
     private IEnumerator waitBeforeNextWave() {
         isWaitingForWaveStart = true;
         yield return new WaitForSeconds(waveCooldownSeconds1);
-        if (!startOfGame) {
+        if (startOfGame) {
+            startEvent.Raise();
+            yield return new WaitForSeconds(6f);
+        } else {
             currentWave++;
         }
         enemiesSpawnedThisWave = 0;

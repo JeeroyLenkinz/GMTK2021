@@ -766,13 +766,9 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 614270339}
     - target: {fileID: 2301391236564440416, guid: aa753147c88c58b43acd0a6ddb034ade, type: 3}
-      propertyPath: waveCooldownSeconds1
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 2301391236564440416, guid: aa753147c88c58b43acd0a6ddb034ade, type: 3}
-      propertyPath: waveCooldownSeconds2
-      value: 4
-      objectReference: {fileID: 0}
+      propertyPath: startEvent
+      value: 
+      objectReference: {fileID: 11400000, guid: 5dbc8acbc0975d54bbf07b204a3e0f9e, type: 2}
     - target: {fileID: 2301391236564440417, guid: aa753147c88c58b43acd0a6ddb034ade, type: 3}
       propertyPath: m_RootOrder
       value: 13
@@ -820,10 +816,6 @@ PrefabInstance:
     - target: {fileID: 2301391236564440419, guid: aa753147c88c58b43acd0a6ddb034ade, type: 3}
       propertyPath: m_Name
       value: SpawnManager
-      objectReference: {fileID: 0}
-    - target: {fileID: 2301391236564440419, guid: aa753147c88c58b43acd0a6ddb034ade, type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: aa753147c88c58b43acd0a6ddb034ade, type: 3}

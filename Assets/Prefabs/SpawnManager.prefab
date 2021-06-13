@@ -64,6 +64,7 @@ MonoBehaviour:
   enemiesPerWave: 0a0000000f00000014000000
   killEnemySFX: {fileID: 8300000, guid: ade126c2705f84808afba2e527fcbfb9, type: 3}
   waveNumberEvent: {fileID: 11400000, guid: 5d17786559e60ac43acb61784781e6ea, type: 2}
+  startEvent: {fileID: 11400000, guid: 5dbc8acbc0975d54bbf07b204a3e0f9e, type: 2}
 --- !u!114 &1565109039
 MonoBehaviour:
   m_ObjectHideFlags: 0
