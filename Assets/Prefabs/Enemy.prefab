@@ -490,6 +490,7 @@ GameObject:
   - component: {fileID: 978000883}
   - component: {fileID: 754104969}
   - component: {fileID: 871501555}
+  - component: {fileID: 1404964131393352751}
   m_Layer: 13
   m_Name: Enemy
   m_TagString: Enemy
@@ -557,6 +558,7 @@ MonoBehaviour:
     m_Bits: 512
   playerHitEvent: {fileID: 11400000, guid: e60ca0dc07b53ea4085dc01929d16c81, type: 2}
   explodedEnemyPrefab: {fileID: 4552951116703017611, guid: 0c7001df41bc1094993cad6fd8b75bcf, type: 3}
+  enemyDestroyedEvent: {fileID: 11400000, guid: 93ef3f6226478b5478e1391184864caf, type: 2}
   pointLight: {fileID: 5535172674316226793}
 --- !u!114 &1496608790
 MonoBehaviour:
@@ -697,6 +699,38 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   aIPath: {fileID: 1496608790}
+--- !u!114 &1404964131393352751
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2753194330981907370}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5758ca93461aeeb4589456a052b07d74, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _showDebugFields: 0
+  _enableGizmoDebugging: 1
+  _debugColor: {r: 0, g: 1, b: 1, a: 1}
+  _previouslyRegisteredEvent: {fileID: 0}
+  _event: {fileID: 11400000, guid: d7a5c46526a158846b58a0b1e1c33501, type: 2}
+  _response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 5385342784791795970}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &4272387712643805303
 GameObject:
   m_ObjectHideFlags: 0

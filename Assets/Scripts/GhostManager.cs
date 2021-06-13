@@ -88,6 +88,7 @@ public class GhostManager : PlayerManager
             {
                 player.GetComponent<PlayerChain>().AttachNext(enemy);
                 chainedEnemies.Add(enemy);
+                enemyHit.Raise(enemy);
                 enemyLogic.AttachNext(this.gameObject);
             }
 

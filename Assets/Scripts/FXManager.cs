@@ -5,7 +5,6 @@ using UnityEngine.Rendering;
 using UnityEngine.Rendering.Universal;
 using DG.Tweening;
 using ScriptableObjectArchitecture;
-using UnityEditorInternal;
 
 public class FXManager : MonoBehaviour
 {
