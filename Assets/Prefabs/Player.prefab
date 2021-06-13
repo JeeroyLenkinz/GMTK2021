@@ -84,7 +84,6 @@ GameObject:
   m_Component:
   - component: {fileID: 848617644}
   - component: {fileID: 848617645}
-  - component: {fileID: 848617646}
   - component: {fileID: 848617647}
   m_Layer: 0
   m_Name: Compass
@@ -158,38 +157,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &848617646
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 848617643}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5758ca93461aeeb4589456a052b07d74, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _showDebugFields: 0
-  _enableGizmoDebugging: 1
-  _debugColor: {r: 0, g: 1, b: 1, a: 1}
-  _previouslyRegisteredEvent: {fileID: 11400000, guid: 836c73b6be9b85e48a798c2b5ea213b8, type: 2}
-  _event: {fileID: 11400000, guid: 836c73b6be9b85e48a798c2b5ea213b8, type: 2}
-  _response:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 848617647}
-        m_TargetAssemblyTypeName: Compass, Assembly-CSharp
-        m_MethodName: e_enableCompass
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
 --- !u!114 &848617647
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -206,6 +173,9 @@ MonoBehaviour:
     _useConstant: 0
     _constantValue: 0
     _variable: {fileID: 11400000, guid: 836c73b6be9b85e48a798c2b5ea213b8, type: 2}
+  human: {fileID: 8395581352987850147}
+  ghost: {fileID: 0}
+  displayOffset: 1.5
 --- !u!1 &1475565269
 GameObject:
   m_ObjectHideFlags: 0
