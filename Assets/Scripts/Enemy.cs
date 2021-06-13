@@ -19,6 +19,8 @@ public class Enemy : MonoBehaviour
     private Vector2 explosionOrigin;
     [SerializeField]
     private GameObject explodedEnemyPrefab;
+    private Animator animController;
+
     private enum State {
         Moving,
         Attacking,
@@ -29,6 +31,7 @@ public class Enemy : MonoBehaviour
     {
         isChained = false;
         nextAttached = null;
+        animController = GetComponentInChildren<Animator>();
 
         lineRenderer = GetComponent<LineRenderer>();
         lineRenderer.widthMultiplier = 0.3f;
@@ -48,7 +51,7 @@ public class Enemy : MonoBehaviour
         if (aiPath.reachedEndOfPath && state == State.Moving) {
             state = State.Attacking;
             aiPath.isStopped = true;
-            StartCoroutine(Attack());
+            animController.SetTrigger("EnemyStartSwing");
         }
         UpdateLineRenderer();
     }
@@ -67,20 +70,19 @@ public class Enemy : MonoBehaviour
         }
     }
 
-    private IEnumerator Attack() {
-        // Begin attack animations
-        Debug.Log("Starting windup!");
-        // Yield for whatever the duration of the windup is
-        yield return new WaitForSeconds(1.5f);
-        Debug.Log("Swing!");
+    public void a_SwingDown()
+    {
         Collider2D[] hitPlayers = Physics2D.OverlapCircleAll(attackPoint.position, attackRange, playerLayer);
-        if (hitPlayers.Length > 0) {
+        if (hitPlayers.Length > 0)
+        {
             // Player has been hit
             Debug.Log("Player Hit!");
             playerHitEvent.Raise();
         }
-        // Slight cooldown before chasing again
-        yield return new WaitForSeconds(1.5f);
+    }
+
+    public void a_DoneSwing()
+    {
         state = State.Moving;
         aiPath.isStopped = false;
     }
