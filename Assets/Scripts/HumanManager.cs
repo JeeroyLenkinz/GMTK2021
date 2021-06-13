@@ -40,6 +40,8 @@ public class HumanManager : PlayerManager
 
     public GameObject ArtBigGO;
     public GameObject trailGO;
+    private bool isInvincible;
+    public float invincibilityDurationSeconds;
 
     void Start()
     {
@@ -48,6 +50,7 @@ public class HumanManager : PlayerManager
         ghost.SetActive(false);
         pChain = GetComponent<PlayerChain>();
         isDead = false;
+        isInvincible = false;
     }
 
     public void e_channelTriggered() {
@@ -204,11 +207,12 @@ public class HumanManager : PlayerManager
     }
 
     public void e_getHit() {
-        if (!isMovingToGhost.Value && !isDead) 
+        if (!isMovingToGhost.Value && !isDead && !isInvincible) 
         {
             if (isChanneling.Value) {
                 // Initiate sever
                 severConnectionEvent.Raise();
+                StartCoroutine(setInvincible());
                 ghost.GetComponent<GhostManager>().StartSever();
             } else {
                 // Die
@@ -220,5 +224,11 @@ public class HumanManager : PlayerManager
                 audioSource.Play();
             }
         }
+    }
+
+    private IEnumerator setInvincible() {
+        isInvincible = true;
+        yield return new WaitForSeconds(invincibilityDurationSeconds);
+        isInvincible = false;
     }
 }
