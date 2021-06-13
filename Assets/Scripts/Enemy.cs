@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Pathfinding;
+using UnityEngine.Experimental.Rendering.Universal;
 
 public class Enemy : MonoBehaviour
 {
@@ -21,6 +22,8 @@ public class Enemy : MonoBehaviour
     private GameObject explodedEnemyPrefab;
     private Animator animController;
 
+    public Light2D pointLight;
+
     private enum State {
         Moving,
         Attacking,
@@ -33,7 +36,7 @@ public class Enemy : MonoBehaviour
         nextAttached = null;
         animController = GetComponentInChildren<Animator>();
 
-        lineRenderer = GetComponent<LineRenderer>();
+        lineRenderer = GetComponentInChildren<LineRenderer>();
         lineRenderer.widthMultiplier = 0.3f;
         aiPath = GetComponent<AIPath>();
         state = State.Moving;
@@ -129,5 +132,10 @@ public class Enemy : MonoBehaviour
             return;
         }
         Gizmos.DrawWireSphere(attackPoint.position, attackRange);
+    }
+
+    public Light2D GetLight()
+    {
+        return pointLight;
     }
 }

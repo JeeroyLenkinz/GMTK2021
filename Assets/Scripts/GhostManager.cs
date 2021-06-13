@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using ScriptableObjectArchitecture;
+using UnityEngine.Experimental.Rendering.Universal;
 
 public class GhostManager : PlayerManager
 {
@@ -72,6 +73,11 @@ public class GhostManager : PlayerManager
         {
             GameObject enemy = collision.gameObject;
             Enemy enemyLogic = enemy.GetComponent<Enemy>();
+
+            if(enemyLogic.GetLight() != null)
+            {
+                enemyLogic.GetLight().gameObject.SetActive(true);
+            }
 
 
             if(chainedEnemies.Count == 0)             // If this is the first enemy hit
