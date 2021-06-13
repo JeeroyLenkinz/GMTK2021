@@ -4051,6 +4051,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1365835577}
     - target: {fileID: 4342586521218006145, guid: 5e4439b8e6982db4fb126e5f840c2c67, type: 3}
+      propertyPath: SeverSat
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 4342586521218006145, guid: 5e4439b8e6982db4fb126e5f840c2c67, type: 3}
       propertyPath: vigScript
       value: 
       objectReference: {fileID: 1980222031}
@@ -4058,6 +4062,10 @@ PrefabInstance:
       propertyPath: overlaycam
       value: 
       objectReference: {fileID: 948176624}
+    - target: {fileID: 4342586521218006145, guid: 5e4439b8e6982db4fb126e5f840c2c67, type: 3}
+      propertyPath: SeverAbIntensity
+      value: 0.5
+      objectReference: {fileID: 0}
     - target: {fileID: 4342586521218006146, guid: 5e4439b8e6982db4fb126e5f840c2c67, type: 3}
       propertyPath: m_RootOrder
       value: 2
@@ -13895,6 +13903,86 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &1195441375 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4342586521218006147, guid: 5e4439b8e6982db4fb126e5f840c2c67, type: 3}
+  m_PrefabInstance: {fileID: 302279809}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1195441376
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1195441375}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5758ca93461aeeb4589456a052b07d74, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _showDebugFields: 0
+  _enableGizmoDebugging: 1
+  _debugColor: {r: 0, g: 1, b: 1, a: 1}
+  _previouslyRegisteredEvent: {fileID: 11400000, guid: d7a5c46526a158846b58a0b1e1c33501, type: 2}
+  _event: {fileID: 11400000, guid: d7a5c46526a158846b58a0b1e1c33501, type: 2}
+  _response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1195441379}
+        m_TargetAssemblyTypeName: FXManager, Assembly-CSharp
+        m_MethodName: e_Heard_Sever_Start
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &1195441377
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1195441375}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5758ca93461aeeb4589456a052b07d74, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _showDebugFields: 0
+  _enableGizmoDebugging: 1
+  _debugColor: {r: 0, g: 1, b: 1, a: 1}
+  _previouslyRegisteredEvent: {fileID: 11400000, guid: 5365afef203157b48998442d5e48e1a7, type: 2}
+  _event: {fileID: 11400000, guid: 5365afef203157b48998442d5e48e1a7, type: 2}
+  _response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1195441379}
+        m_TargetAssemblyTypeName: FXManager, Assembly-CSharp
+        m_MethodName: e_Heard_Reattach_Start
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &1195441379 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4342586521218006145, guid: 5e4439b8e6982db4fb126e5f840c2c67, type: 3}
+  m_PrefabInstance: {fileID: 302279809}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1195441375}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 801283c58172cec458c0ad03f0aba6d4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &1217660561 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8796057664265691968, guid: 32cf64b37abdc4baf8a3a4413e27461d, type: 3}
@@ -15217,6 +15305,54 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &1338325022 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1338325022, guid: 46c94379f87136e499f77049e4eb81df, type: 3}
+  m_PrefabInstance: {fileID: 1180685648}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1338325026 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1338325025, guid: 46c94379f87136e499f77049e4eb81df, type: 3}
+  m_PrefabInstance: {fileID: 1180685648}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1338325022}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 05f67a8fa97c2534eabfeeface2fe7d0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1338325033
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1338325022}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5758ca93461aeeb4589456a052b07d74, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _showDebugFields: 0
+  _enableGizmoDebugging: 1
+  _debugColor: {r: 0, g: 1, b: 1, a: 1}
+  _previouslyRegisteredEvent: {fileID: 11400000, guid: d7a5c46526a158846b58a0b1e1c33501, type: 2}
+  _event: {fileID: 11400000, guid: d7a5c46526a158846b58a0b1e1c33501, type: 2}
+  _response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1338325026}
+        m_TargetAssemblyTypeName: WaveText, Assembly-CSharp
+        m_MethodName: e_severed
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &1358504622
 GameObject:
   m_ObjectHideFlags: 0
@@ -29457,6 +29593,10 @@ PrefabInstance:
       propertyPath: ghost
       value: 
       objectReference: {fileID: 165431008}
+    - target: {fileID: 812438433, guid: f601e37b6fa12b24aa8dd9e66c1227dc, type: 3}
+      propertyPath: m_Time
+      value: 0.2
+      objectReference: {fileID: 0}
     - target: {fileID: 848617647, guid: f601e37b6fa12b24aa8dd9e66c1227dc, type: 3}
       propertyPath: ghost
       value: 

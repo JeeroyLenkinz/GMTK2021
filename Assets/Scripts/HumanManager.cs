@@ -35,7 +35,10 @@ public class HumanManager : PlayerManager
     [SerializeField]
     private GameEvent severConnectionEvent;
     private bool isDead;
-    
+
+    public GameObject ArtBigGO;
+    public GameObject trailGO;
+
     void Start()
     {
         isSevered.Value = false;
@@ -96,6 +99,7 @@ public class HumanManager : PlayerManager
         audioSource.Play();
     }
 
+    /*
     private IEnumerator MoveToGhostCoroutine(List<GameObject> chainedEnemies)
     {
         Tweener tweenb = transform.DOScaleX(4.5f, 0.3f).SetEase(Ease.InBack);
@@ -176,7 +180,96 @@ public class HumanManager : PlayerManager
             EndOfDash();
         }
     }
+    */
 
+    private IEnumerator MoveToGhostCoroutine(List<GameObject> chainedEnemies)
+    {
+        Tweener tweenb = transform.DOScaleX(5.5f, 0.25f).SetEase(Ease.InBack);
+        Tweener tweener = transform.DOScaleY(1.5f, 0.25f).SetEase(Ease.InBack);
+
+        //Tweener tweenb = transform.DOScale(new Vector3(1, 1, 1), 0.3f).SetEase(Ease.InBack);
+
+        yield return new WaitForSeconds(tweenb.Duration());
+
+        Tweener tweena = transform.DOScaleX(1f, 0.35f).SetEase(Ease.InOutBack);
+        transform.DOScaleY(3.5f, 0.35f).SetEase(Ease.InOutBack);
+
+        if (chainedEnemies.Count == 0)
+        {
+            Vector2 direction = (ghost.transform.position - transform.position).normalized;
+            DOTween.To(() => (Vector2)transform.up, x => transform.up = x, new Vector2(direction.x, direction.y), 0.3f).SetEase(Ease.InOutBack);
+        }
+        else
+        {
+            Vector2 direction = (chainedEnemies[0].transform.position - transform.position).normalized;
+            DOTween.To(() => (Vector2)transform.up, x => transform.up = x, new Vector2(direction.x, direction.y), 0.3f).SetEase(Ease.InOutBack);
+        }
+
+        yield return new WaitForSeconds(tweena.Duration());
+
+        transform.DOScale(Vector3.zero, 0.2f);  // Set to zero
+        ArtBigGO.SetActive(false);
+        transform.localScale = new Vector3(1f, 3.5f, 3f); //reenable size for collisions and shit - nums what it is before zeroing it
+        trailGO.SetActive(true);
+
+        if (chainedEnemies.Count == 0)
+        {
+            // Move to ghost
+            float distance = (ghost.transform.position - transform.position).magnitude;
+            float duration = distance / moveToGhostSpeed;       // Because DOTween operates off durations
+
+            Tween tween = transform.DOMove(ghost.transform.position, duration).SetEase(Ease.Linear);
+            yield return new WaitForSeconds(tween.Duration());
+            transform.up = Vector2.zero;
+            trailGO.SetActive(false);
+            ArtBigGO.SetActive(true);
+            Tweener tweenc = transform.DOScaleX(3f, 0.3f).SetEase(Ease.InOutBack, 3f);
+            transform.DOScaleY(3f, 0.3f).SetEase(Ease.InOutBack, 3f);
+
+            EndOfDash();
+        }
+        else
+        {
+            int index = 0;
+            foreach (GameObject enemy in chainedEnemies)
+            {
+                pChain.AttachNext(enemy);
+                float distance = (enemy.transform.position - transform.position).magnitude;
+                float duration = distance / moveToGhostSpeed;       // Because DOTween operates off durations
+
+
+                Tween tween = transform.DOMove(enemy.transform.position, duration).SetEase(Ease.Linear);
+                Vector2 directionb = (enemy.transform.position - transform.position).normalized;
+                //DOTween.To(() => (Vector2)transform.up, x => transform.up = x, new Vector2(directionb.x, directionb.y), 0.001f).SetEase(Ease.Linear);
+                transform.up = directionb;
+                yield return new WaitForSeconds(tween.Duration());
+
+                //Destroy(enemy);
+                enemy.GetComponent<Enemy>().Explode();
+                enemyDestroyedEvent.Raise();
+                index++;
+            }
+
+            // Move to ghost
+            pChain.AttachNext(ghost);
+            float distance2 = (ghost.transform.position - transform.position).magnitude;
+            float duration2 = distance2 / moveToGhostSpeed;       // Because DOTween operates off durations
+
+            Vector2 directionc = (ghost.transform.position - transform.position).normalized;
+            DOTween.To(() => (Vector2)transform.up, x => transform.up = x, new Vector2(directionc.x, directionc.y), duration2 / 4).SetEase(Ease.Linear);
+
+            Tween tween2 = transform.DOMove(ghost.transform.position, duration2).SetEase(Ease.Linear);
+            yield return new WaitForSeconds(tween2.Duration());
+
+            transform.up = Vector2.zero;
+            trailGO.SetActive(false);
+            ArtBigGO.SetActive(true);
+            Tweener tweenc = transform.DOScaleX(3f, 0.3f).SetEase(Ease.InOutBack, 3f);
+            transform.DOScaleY(3f, 0.3f).SetEase(Ease.InOutBack, 3f);
+
+            EndOfDash();
+        }
+    }
     private void EndOfDash()
     {
         GetComponentInChildren<LineRenderer>().enabled = false;

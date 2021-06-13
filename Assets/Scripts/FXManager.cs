@@ -9,6 +9,14 @@ using UnityEditorInternal;
 
 public class FXManager : MonoBehaviour
 {
+    private enum EffectState
+    {
+        Normal,
+        Summoned,
+        Severed
+    }
+    private EffectState effectState;
+
     [SerializeField]
     private GameEvent moveToGhostFXDone;
     [SerializeField]
@@ -24,15 +32,23 @@ public class FXManager : MonoBehaviour
     public float ghostVigIntensity;
     public float defaultVigIntensity;
     public float defaultSaturation;
+    public float SeverAbIntensity;
+    public float SeverSat;
 
     bool isSummoning = false;
     bool isDesummoning = false;
+    bool isSevering = false;
+    bool isReattaching = false;
 
     float summonTimer = 0f;
     float summonEffectDur = 2f;
 
+    float severTimer = 0f;
+    float severEffectDur = 2f;
+
     float vigIntensity = 0.24f;
     float sat = 10f;
+    float chromaticAbIntensity = 0f;
 
     // Start is called before the first frame update
     void Start()
@@ -44,6 +60,9 @@ public class FXManager : MonoBehaviour
         vignette.intensity.Override(defaultVigIntensity);
         colorAdjust.contrast.Override(10f);
         colorAdjust.saturation.Override(defaultSaturation);
+        chromaticAbb.intensity.Override(0f);
+
+        effectState = EffectState.Normal;
     }
 
     // Update is called once per frame
@@ -53,9 +72,17 @@ public class FXManager : MonoBehaviour
         {
             SummonStartFX();
         }
-        if (isDesummoning)
+        else if (isDesummoning)
         {
             DeSummonStartFX();
+        } 
+        if (isSevering)
+        {
+            SevereStartFX();
+        }
+        else if (isReattaching)
+        {
+            ReAttachStartFX();
         }
     }
 
@@ -71,12 +98,34 @@ public class FXManager : MonoBehaviour
         overlaycam.gameObject.GetComponent<CameraFollow>().GhostReached(effectDur);
         isDesummoning = true;
         summonTimer = 0f;
+        effectState = EffectState.Normal;
     }
 
     public void e_Heard_Summon_Start()
     {
         summonTimer = 0f;
         isSummoning = true;
+        effectState = EffectState.Summoned;
+    }
+
+    public void e_Heard_Sever_Start()
+    {
+        summonTimer = 0f;
+        severTimer = 0f;
+        if(effectState == EffectState.Summoned)
+        {
+            isSummoning = false;
+            isDesummoning = true;
+        }
+        isSevering = true;
+        effectState = EffectState.Severed;
+    }
+
+    public void e_Heard_Reattach_Start()
+    {
+        severTimer = 0f;
+        isSevering = true;
+        effectState = EffectState.Normal;
     }
 
     private void SummonStartFX()
@@ -87,13 +136,21 @@ public class FXManager : MonoBehaviour
         {
             summonTimer += Time.deltaTime;
             vigIntensity = Mathf.Lerp(vigIntensity, ghostVigIntensity, 0.01f);
-            sat = Mathf.Lerp(sat, -100f, 0.05f);
+            if(effectState == EffectState.Severed)
+            {
+                sat = Mathf.Lerp(sat, SeverSat, 0.05f);
+            }
+            else
+            {
+                sat = Mathf.Lerp(sat, -100f, 0.05f);
+            }
+
             vignette.intensity.Override(vigIntensity);
             colorAdjust.saturation.Override(sat);
         }
         else
         {
-            isDesummoning = false;
+            isSummoning = false;
         }
 
 
@@ -113,18 +170,47 @@ public class FXManager : MonoBehaviour
         }
         else
         {
-            isSummoning = false;
+            isDesummoning = false;
         }
 
 
     }
 
+    private void SevereStartFX()
+    {
+        if (severTimer < severEffectDur)
+        {
+            severTimer += Time.deltaTime;
+            chromaticAbIntensity = Mathf.Lerp(chromaticAbIntensity, SeverAbIntensity, 0.05f);
+            chromaticAbb.intensity.Override(chromaticAbIntensity);
+            sat = Mathf.Lerp(sat, defaultSaturation, 1f);
+        }
+        else
+        {
+            isSevering = false;
+        }
+    }
+
+    private void ReAttachStartFX()
+    {
+        if (severTimer < severEffectDur)
+        {
+            severTimer += Time.deltaTime;
+            chromaticAbIntensity = Mathf.Lerp(chromaticAbIntensity, 0f, 0.05f);
+            chromaticAbb.intensity.Override(chromaticAbIntensity);
+        }
+        else
+        {
+            isSevering = false;
+        }
+    }
+
     private IEnumerator MoveToGhostVFX()
     {
-        float effectDur = 0.65f;        // How long the cumulative effect is
+        float effectDur = 0.4f;        // How long the cumulative effect is
         cam.gameObject.GetComponent<CameraFollow>().Stop_Channel(effectDur);
         overlaycam.gameObject.GetComponent<CameraFollow>().Stop_Channel(effectDur);
-        yield return new WaitForSeconds(effectDur);
+        //yield return new WaitForSeconds(effectDur/2); // removed to reduce anim time
         moveToGhostFXDone.Raise();
         yield return null;
     }
