@@ -10849,6 +10849,10 @@ PrefabInstance:
       propertyPath: player
       value: 
       objectReference: {fileID: 614270339}
+    - target: {fileID: 165431009, guid: 111157c9bd81a8c4d8d7640dcf7519de, type: 3}
+      propertyPath: enemyDestroyedEvent
+      value: 
+      objectReference: {fileID: 11400000, guid: 93ef3f6226478b5478e1391184864caf, type: 2}
     - target: {fileID: 5555324825321703930, guid: 111157c9bd81a8c4d8d7640dcf7519de, type: 3}
       propertyPath: m_Name
       value: Ghost

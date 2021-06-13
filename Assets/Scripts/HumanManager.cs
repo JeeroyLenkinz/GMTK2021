@@ -171,7 +171,7 @@ public class HumanManager : PlayerManager
 
                 //Destroy(enemy);
                 enemy.GetComponent<Enemy>().Explode();
-                enemyDestroyedEvent.Raise();
+                // enemyDestroyedEvent.Raise();
                 index++;
             }
 

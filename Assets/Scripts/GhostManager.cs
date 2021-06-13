@@ -35,6 +35,8 @@ public class GhostManager : PlayerManager
     private AudioSource markEnemyAudioSource;
 
     public float healthDecayMod;
+    [SerializeField]
+    private GameEvent enemyDestroyedEvent;
 
     private new void Awake()
     {
@@ -122,6 +124,7 @@ public class GhostManager : PlayerManager
         foreach (GameObject killedEnemy in chainedEnemies)
         {
             Destroy(killedEnemy);
+            enemyDestroyedEvent.Raise();
         }
         ghostReachedEvent.Raise();
         chainedEnemies.Clear();

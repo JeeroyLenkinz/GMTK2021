@@ -107,7 +107,6 @@ public class SpawnManager : MonoBehaviour
         }
         enemiesSpawnedThisWave = 0;
         waveNumberEvent.Raise(currentWave+1);
-        Debug.Log("Wave #" + currentWave+1);
         yield return new WaitForSeconds(waveCooldownSeconds2);
         isWaitingForWaveStart = false;
         startOfGame = false;

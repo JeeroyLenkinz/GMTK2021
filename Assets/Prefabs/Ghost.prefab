@@ -552,6 +552,7 @@ MonoBehaviour:
     _variable: {fileID: 11400000, guid: e28a30906b13179448baaa8a7781d491, type: 2}
   markEnemyAudioSource: {fileID: 71560333}
   healthDecayMod: 25
+  enemyDestroyedEvent: {fileID: 11400000, guid: 93ef3f6226478b5478e1391184864caf, type: 2}
 --- !u!114 &165431010
 MonoBehaviour:
   m_ObjectHideFlags: 0
