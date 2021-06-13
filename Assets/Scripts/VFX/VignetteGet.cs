@@ -8,6 +8,8 @@ public class VignetteGet : MonoBehaviour
 {
 
     Vignette vignette;
+    ColorAdjustments colorAdjust;
+    ChromaticAberration chromaticAbb;
 
     private void Awake()
     {
@@ -15,16 +17,24 @@ public class VignetteGet : MonoBehaviour
         if (!volumeProfile) throw new System.NullReferenceException(nameof(VolumeProfile));
 
         if (!volumeProfile.TryGet(out vignette)) throw new System.NullReferenceException(nameof(vignette));
-
-        vignette.intensity.Override(0.37f);
+        if (!volumeProfile.TryGet(out colorAdjust)) throw new System.NullReferenceException(nameof(colorAdjust));
+        if (!volumeProfile.TryGet(out chromaticAbb)) throw new System.NullReferenceException(nameof(chromaticAbb));
     }
 
     public Vignette GetVignette()
     {
         return vignette;
     }
+    public ColorAdjustments GetColorAdjust()
+    {
+        return colorAdjust;
+    }
+    public ChromaticAberration GetChromaticAbb()
+    {
+        return chromaticAbb;
+    }
 
- 
+
     // You can leave this variable out of your function, so you can reuse it throughout your class.
 
 }

@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 4342586521218006145}
   - component: {fileID: 4342586521218006144}
   - component: {fileID: 1188415969}
+  - component: {fileID: 302279811}
   m_Layer: 0
   m_Name: VFXmanager
   m_TagString: Untagged
@@ -46,7 +47,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveToGhostFXDone: {fileID: 11400000, guid: d34e2ad4bdabacb4a807061ce4c487e9, type: 2}
+  vigScript: {fileID: 302279811}
   cam: {fileID: 0}
+  ghostVigIntensity: 0.5
+  defaultVigIntensity: 0.24
+  defaultSaturation: 10
 --- !u!114 &4342586521218006144
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -111,3 +116,15 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &302279811
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4342586521218006147}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 828de3441a1998d4db76e8b0dac6a4ed, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

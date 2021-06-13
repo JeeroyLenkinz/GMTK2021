@@ -211,6 +211,10 @@ PrefabInstance:
       propertyPath: cam
       value: 
       objectReference: {fileID: 1365835577}
+    - target: {fileID: 4342586521218006145, guid: 5e4439b8e6982db4fb126e5f840c2c67, type: 3}
+      propertyPath: vigScript
+      value: 
+      objectReference: {fileID: 2123248013}
     - target: {fileID: 4342586521218006146, guid: 5e4439b8e6982db4fb126e5f840c2c67, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -259,8 +263,57 @@ PrefabInstance:
       propertyPath: m_Name
       value: VFXmanager
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 302279811, guid: 5e4439b8e6982db4fb126e5f840c2c67, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 5e4439b8e6982db4fb126e5f840c2c67, type: 3}
+--- !u!1 &302279810 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4342586521218006147, guid: 5e4439b8e6982db4fb126e5f840c2c67, type: 3}
+  m_PrefabInstance: {fileID: 302279809}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &302279812
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 302279810}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5758ca93461aeeb4589456a052b07d74, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _showDebugFields: 0
+  _enableGizmoDebugging: 1
+  _debugColor: {r: 0, g: 1, b: 1, a: 1}
+  _previouslyRegisteredEvent: {fileID: 11400000, guid: 24ebdd2b2bbb74f458fb35836365ca4e, type: 2}
+  _event: {fileID: 11400000, guid: 24ebdd2b2bbb74f458fb35836365ca4e, type: 2}
+  _response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 302279815}
+        m_TargetAssemblyTypeName: FXManager, Assembly-CSharp
+        m_MethodName: e_Heard_Summon_Start
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &302279815 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4342586521218006145, guid: 5e4439b8e6982db4fb126e5f840c2c67, type: 3}
+  m_PrefabInstance: {fileID: 302279809}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 302279810}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 801283c58172cec458c0ad03f0aba6d4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &346418342
 GameObject:
   m_ObjectHideFlags: 0
@@ -622,6 +675,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2123248012}
   - component: {fileID: 2123248011}
+  - component: {fileID: 2123248013}
   m_Layer: 0
   m_Name: Global Volume
   m_TagString: Untagged
@@ -660,6 +714,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2123248013
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2123248010}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 828de3441a1998d4db76e8b0dac6a4ed, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &2301391235712515662
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1047,10 +1113,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 456575002, guid: f601e37b6fa12b24aa8dd9e66c1227dc, type: 3}
+      propertyPath: uniqueID
+      value: 8067216435921235918
+      objectReference: {fileID: 0}
     - target: {fileID: 614270340, guid: f601e37b6fa12b24aa8dd9e66c1227dc, type: 3}
       propertyPath: ghost
       value: 
       objectReference: {fileID: 165431008}
+    - target: {fileID: 1596741483, guid: f601e37b6fa12b24aa8dd9e66c1227dc, type: 3}
+      propertyPath: uniqueID
+      value: 8432106140697203026
+      objectReference: {fileID: 0}
     - target: {fileID: 3871319337761648029, guid: f601e37b6fa12b24aa8dd9e66c1227dc, type: 3}
       propertyPath: ghost
       value: 
